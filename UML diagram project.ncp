@@ -1,0 +1,119 @@
+<Project>
+  <Name>Untitled</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>Untitled</Name>
+    <Language>CSharp</Language>
+    <Entities />
+    <Relationships />
+  </ProjectItem>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>Untitled</Name>
+    <Language>Java</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>Database</Name>
+        <Access>Public</Access>
+        <Location left="511" top="308" />
+        <Size width="356" height="196" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private List&lt;Person&gt; people</Member>
+        <Member type="Constructor">public Database()</Member>
+        <Member type="Method">public List&lt;Person&gt; getPeople()</Member>
+        <Member type="Method">public Person getPerson(Person person)</Member>
+        <Member type="Method">public bool createPerson(String licenceplate, int number, String email)</Member>
+        <Member type="Method">public bool deletePerson(Person person)</Member>
+        <Member type="Method">public bool registerPerson()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Person</Name>
+        <Access>Public</Access>
+        <Location left="534" top="567" />
+        <Size width="318" height="196" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private String licenceplate</Member>
+        <Member type="Field">private int number</Member>
+        <Member type="Field">private string email</Member>
+        <Member type="Field">private String name</Member>
+        <Member type="Field">private String surname</Member>
+        <Member type="Constructor">public Person(String licenceplate, int number, string email)</Member>
+        <Member type="Method">public string getLicenceplate()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Interface">
+        <Name>PersonManager</Name>
+        <Access>Public</Access>
+        <Location left="53" top="292" />
+        <Size width="357" height="145" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">bool CreatePerson(String licenceplate, int number, String email)</Member>
+        <Member type="Method">Person GetPerson(Person person)</Member>
+        <Member type="Method">bool deletePerson(Person person)</Member>
+        <Member type="Method">bool RegisterPerson()</Member>
+      </Entity>
+      <Entity type="Class">
+        <Name>Service</Name>
+        <Access>Public</Access>
+        <Location left="511" top="10" />
+        <Size width="331" height="247" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private Database Database</Member>
+        <Member type="Field">private int freeSpaces</Member>
+        <Member type="Method">public bool thereIsFreeSpace()</Member>
+        <Member type="Method">public bool checkLicenceplate()</Member>
+        <Member type="Method">public void sendEmail(Person person)</Member>
+        <Member type="Method">public void makeAppointment()</Member>
+        <Member type="Method">public bool hasAppointment(Person person)</Member>
+        <Member type="Method">public List&lt;People&gt; getPeople()</Member>
+        <Member type="Method">public Person getPerson(Person person)</Member>
+        <Member type="Method">public bool registerPerson()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>AppointmentController</Name>
+        <Access>Public</Access>
+        <Location left="105" top="29" />
+        <Size width="268" height="211" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public String sendEmail()</Member>
+        <Member type="Method">public bool createPerson()</Member>
+        <Member type="Method">public List&lt;Person&gt; getPeople()</Member>
+        <Member type="Method">public Person deletePerson()</Member>
+        <Member type="Method">public void createPerson()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Association" first="0" second="1">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <EndRole>people</EndRole>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>*</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="0" second="2">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="3" second="0">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="4" second="3">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <EndMultiplicity>1</EndMultiplicity>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+</Project>
