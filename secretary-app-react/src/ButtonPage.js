@@ -1,13 +1,17 @@
 import React from "react";
+
 function ButtonPage() {
   return (
     <center>
       <>
-        <button variant="primary" size="lg" active>
-          Primary button
+        <button variant="register" size="lg" active>
+          Register
         </button>{" "}
-        <button variant="secondary" size="lg" active>
-          Button
+        <button variant="update" size="lg" active>
+          Update
+        </button>
+        <button variant="delete" size="lg" active>
+          Delete
         </button>
       </>
     </center>
