@@ -1,5 +1,6 @@
 package com.secretary.secretaryapp.controller;
 
+
 import com.secretary.secretaryapp.model.Client;
 import com.secretary.secretaryapp.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +14,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+
 @Controller
 @RequestMapping("/clients")
+@CrossOrigin(origins = {"http://localhost:3001", "http://localhost:3000"})
 public class ClientController {
 @Autowired
     private ClientRepository clientRepository;
