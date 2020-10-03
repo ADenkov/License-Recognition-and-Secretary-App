@@ -75,11 +75,11 @@ class Client extends React.Component{
 	render() {
 		return (
 			<tr>
-				<td>{this.props.client.name}</td>
-				<td>{this.props.client.phone}</td>
-				{/* <td>{this.props.client.licensePlate}</td>
-        <td>{this.props.client.phoneNumber}</td>
-				<td>{this.props.client.email}</td> */}
+				<td>{this.props.client.first_name}</td>
+				<td>{this.props.client.last_name}</td>
+				<td>{this.props.client.license_plate}</td>
+        		<td>{this.props.client.phone_number}</td>
+				<td>{this.props.client.email}</td> 
 			</tr>
 		)
   }
