@@ -3,6 +3,7 @@ import "./App.css";
 
 
 function ClientInfo() {
+ 
   return (
     <table id="customers">
   <tr>
