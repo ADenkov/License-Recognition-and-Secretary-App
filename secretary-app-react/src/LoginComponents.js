@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import Login from "./Login";
+import Logo from "./images/login.png"
 import "./App.css";
+
 function LoginComponents(props) {
   return (
     <span className="h3">
-      Login <hr></hr>
+      <h1> Login </h1> <hr></hr>
       <center>
-        <img src="./src/images/login.jpg" />
+        <img src={Logo} alt="logo img" />
         <div className="col-12 col-lg-4 mt-2 hv-center">
           <form>
             <div className="form-group text-left">

@@ -1,9 +1,14 @@
 import React from "react";
+import "./App.css";
+
 
 function RegisterClient() {
   return (
     <span className="h3">
-      Register Client
+    <h1>Register Client</h1>  
+      <hr></hr>
+      <br></br>
+      <center>
       <div className="col-12 col-lg-4 mt-2 hv-center">
         <form>
           <div className="form-group text-left">
@@ -21,7 +26,7 @@ function RegisterClient() {
               id="licensePlate"
               placeholder="License Plate"
             />
-            
+
           </div><div className="form-group text-left">
             <input
               type="phoneNr"
@@ -29,7 +34,7 @@ function RegisterClient() {
               id="phoneNr"
               placeholder="Phone Number"
             />
-            
+
           </div><div className="form-group text-left">
             <input
               type="email"
@@ -37,16 +42,15 @@ function RegisterClient() {
               id="email"
               placeholder="Email"
             />
-            
+
           </div>
           <a href=".\ButtonPage.js" class="btn btn-info" role="button">
-            Link Button
+            Register Client
           </a>
-          <a href=".\ButtonPage.js">Login</a>
           <br></br>
-          <a href="/">Forgot username/password?</a>
         </form>
       </div>
+      </center>
     </span>
   );
 }

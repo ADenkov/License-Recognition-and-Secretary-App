@@ -4,15 +4,15 @@ function ButtonPage() {
   return (
     <center>
       <>
-        <button variant="register" size="lg" active>
+        <a href="registerClient" variant="register" class="btn btn-info crud" size="lg" active>
           Register
-        </button>{" "}
-        <button variant="update" size="lg" active>
+        </a>
+        <a href="clientInfo" variant="update" class="btn btn-info crud" size="lg" active>
           Update
-        </button>
-        <button variant="delete" size="lg" active>
+        </a>
+        <a href="deleteClient" variant="delete" class="btn btn-info crud" size="lg" active>
           Delete
-        </button>
+        </a>
       </>
     </center>
   );
