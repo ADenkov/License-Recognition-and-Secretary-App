@@ -1,6 +1,6 @@
 import React from "react";
 
-function UpdateClient() {
+/*function UpdateClient() {
     return (
         <span className="h3">
             <h1>Update Client</h1>
@@ -51,5 +51,5 @@ function UpdateClient() {
             </center>
         </span>
     );
-}
-export default UpdateClient;
+}*/
+//export default UpdateClient;
