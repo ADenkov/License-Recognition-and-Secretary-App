@@ -3,11 +3,11 @@ import React, {Component} from "react";
 class Update extends Component{
     state ={
          //client: this.props.getClient,
-        firstName: this.props.state._Client.firstName,
-        lastName: this.props.getClient().lastName,
-        email: this.props.getClient().email,
-        licensePlate: this.props.getClient().licensePlate,
-        phoneNumber: this.props.getClient().phoneNumber
+        //firstName: this.props.state._Client.firstName,
+        //lastName: this.props.getClient().lastName,
+        //email: this.props.getClient().email,
+        //licensePlate: this.props.getClient().licensePlate,
+        //phoneNumber: this.props.getClient().phoneNumber
     }
     handleChange = (e) =>{
         this.setState({
