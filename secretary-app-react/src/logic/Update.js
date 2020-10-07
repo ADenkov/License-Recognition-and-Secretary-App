@@ -2,12 +2,13 @@ import React, {Component} from "react";
 
 class Update extends Component{
     state ={
-         //client: this.props.getClient,
-        //firstName: this.props.state._Client.firstName,
-        //lastName: this.props.getClient().lastName,
-        //email: this.props.getClient().email,
-        //licensePlate: this.props.getClient().licensePlate,
-        //phoneNumber: this.props.getClient().phoneNumber
+         //  client: this.props.getClient,
+        id:1,
+         firstName:null ,
+         lastName:null ,
+         email: null,
+         licensePlate: null,
+         phoneNumber: null
     }
     handleChange = (e) =>{
         this.setState({
@@ -16,7 +17,9 @@ class Update extends Component{
 }
     handleSubmit = (e) =>{
         e.preventDefault();
-        this.props.update(this.state)
+        console.log(this.state)
+        this.props.getClient(this.state);
+        console.log(this.state)
     }
 
 

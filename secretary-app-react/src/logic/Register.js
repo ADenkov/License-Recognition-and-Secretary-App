@@ -54,45 +54,28 @@ class Register extends Component{
        <div className="col-12 col-lg-4 mt-2 hv-center">
          <form onSubmit={this.handleSubmit}>
              <div className="form-group text-left">
-             <input onChange = {this.handleChange} type="name" className="form-control" id="firstName" placeholder="Name"/>
+                 <input onChange = {this.handleChange} className="form-control" id="firstName" placeholder="First Name"/>
              </div>
              <div className="form-group text-left">
-                  <input onChange = {this.handleChange} type="name" className="form-control" id="lastName" placeholder="Name"/>
+                 <input onChange = {this.handleChange} className="form-control" id="lastName" placeholder="Last Name"/>
              </div>
-                          <div className="form-group text-left">
-                            <input onChange = {this.handleChange}
-                                   type="licensePlate"
-                              className="form-control"
-                              id="licensePlate"
-                              placeholder="License Plate"
-                            />
-
-                          </div><div className="form-group text-left">
-                            <input onChange = {this.handleChange}
-                                   type="phoneNr"
-                              className="form-control"
-                              id="phoneNumber"
-                              placeholder="Phone Number"
-                            />
-
-                          </div><div className="form-group text-left">
-                            <input onChange = {this.handleChange}
-                                   type="email"
-                              className="form-control"
-                              id="email"
-                              placeholder="Email"
-                            />
-
-                          </div>
-                          <a onClick={this.handleSubmit} className="btn btn-info" role="button">
-                            Register Client
-                          </a>
-                          <br></br>
-                        </form>
-                      </div>
-                       </center>
-                     </span>
-                   </div>
+             <div className="form-group text-left">
+                 <input onChange = {this.handleChange} className="form-control" id="licensePlate" placeholder="License Plate"/>
+             </div>
+             <div className="form-group text-left">
+                 <input onChange = {this.handleChange} type="tel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" className="form-control" id="phoneNumber" placeholder="Phone Number"/>
+             </div>
+             <div className="form-group text-left">
+                 <input onChange = {this.handleChange} type="email" className="form-control" id="email" placeholder="Email"/>
+             </div>
+             <a onClick={this.handleSubmit} className="btn btn-info" role="button">Register Client</a>
+             <br></br>
+         </form>
+       </div>
+                </center>
+                </span>
+                <br></br>
+            </div>
         )
     }
 
