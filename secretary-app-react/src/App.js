@@ -1,7 +1,13 @@
 import React from "react";
 import "./App.css";
-import Clients from "./components/Clients"
-import Register from "./logic/Register"
+import Clients from "./components/Client"
+import ClientInfo from "./components/ClientInfo"
+import RegisterClient from "./logic/Register"
+import DeleteClient from "./components/DeleteClient"
+import ButtonPage from "./ButtonPage"
+
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 
 class App extends React.Component {
 
@@ -74,20 +80,20 @@ class App extends React.Component {
 	render() {
 		return (
 			<div>
-				<Clients deleteClient={this.deleteClient} clients = {this.state.clients}/>
-				<Register addClient={this.addClient}/>
+				{/* <Clients deleteClient={this.deleteClient} clients = {this.state.clients}/>
+				<Register addClient={this.addClient}/> */}
 				{/*<Update getClient = {this.getClient}/>*/}
-				{/*<Router>*/}
-				{/*	<div className="App">*/}
-				{/*		<header className="App-header">*/}
-				{/*			<Route path="/update" component={UpdatePage} />*/}
-				{/*			<Route path="/btnPage" component={ButtonPage} />*/}
-				{/*			<Route path="/clientInfo" component={ClientInfo} />*/}
-				{/*			<Route path="/registerClient" component={RegisterClient} />*/}
-				{/*			<Route path="/deleteClient" component={DeleteClient} />*/}
-				{/*		</header>*/}
-				{/*	</div>*/}
-				{/*</Router>*/}
+				<Router>
+					<div className="App">
+						<header className="App-header">
+							<Route exact path="/" component={ButtonPage} />
+							{/* <Route path="/update" component={UpdatePage} /> */}
+							<Route path="/clients/all" component={ClientInfo} />
+							<Route path="/registerClient" component={RegisterClient} />
+							<Route path="/deleteClient" component={DeleteClient} />
+						</header>
+					</div>
+				</Router>
 			</div>
 		)
   }
