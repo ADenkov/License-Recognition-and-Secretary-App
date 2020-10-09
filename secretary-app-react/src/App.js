@@ -2,8 +2,7 @@ import React from "react";
 import "./App.css";
 import Clients from "./components/Client"
 import ClientInfo from "./components/ClientInfo"
-import RegisterClient from "./logic/Register"
-import DeleteClient from "./components/DeleteClient"
+import RegisterClient from "./components/register.component"
 import ButtonPage from "./ButtonPage"
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -88,9 +87,8 @@ class App extends React.Component {
 						<header className="App-header">
 							<Route exact path="/" component={ButtonPage} />
 							{/* <Route path="/update" component={UpdatePage} /> */}
-							<Route path="/clients/all" component={ClientInfo} />
+							<Route path="/clientsInfo" component={ClientInfo} />
 							<Route path="/registerClient" component={RegisterClient} />
-							<Route path="/deleteClient" component={DeleteClient} />
 						</header>
 					</div>
 				</Router>

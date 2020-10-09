@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import App from "../App";
+import  { Redirect } from 'react-router-dom'
+import { useHistory } from "react-router-dom";
+
 
 class Register extends Component {
     state = {
@@ -14,14 +17,16 @@ class Register extends Component {
         e.preventDefault();
         // this.props.addClient(this.state);
         // console.log(JSON.stringify(this.state));
+
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(this.state)
         };
         fetch('http://localhost:8080/clients/add', requestOptions)
-            .then(response => response.json())
-            .then(data => this.setState({ client: data.id }));
+            .then( () => window.location.href ='/' )
+            
+
 
     }
     handleChange = (e) => {

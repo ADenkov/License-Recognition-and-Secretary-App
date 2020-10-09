@@ -2,6 +2,29 @@
   text-align: center;
 }
 
+.tableClients {
+  margin-top: 5%;
+  width:60%;
+  border: whitesmoke solid 1.5px;
+  background-color: #17a2b8;
+}
+
+.tableHeader{
+  background-color: #20b2cc;
+  border: whitesmoke solid 1.5px;  color: black;
+  font-weight: normal;
+  font-size: 22px;
+}
+
+td{
+  background-color: rgb(182, 211, 216);
+  border: whitesmoke solid 1.5px;
+  color: black;
+  font-weight: normal;
+  font-size: 18px;
+
+}
+
 .App-header {
   background-color: #064885;
   min-height: 100vh;

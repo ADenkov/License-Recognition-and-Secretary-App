@@ -21,7 +21,8 @@ class Register extends Component{
         };
         fetch('http://localhost:8080/clients/add', requestOptions)
             .then(response => response.json())
-            .then(data => this.setState({ client: data.id }));
+            .then(data => this.setState({ client: data.id }))
+            .then( () => window.location.href = '/');
 
     }
     handleChange = (e) => {
