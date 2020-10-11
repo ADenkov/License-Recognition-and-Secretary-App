@@ -20,7 +20,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-		fetch("http://localhost:8080/clients/all").then(response => {
+		fetch("https://heroku-secretary.herokuapp.com/clients/all").then(response => {
       response.json().then( clients => this.setState({clients: clients}))
 		});
 
@@ -40,7 +40,7 @@ class App extends React.Component {
 		this.setState({
 			clients: clients
 		})
-		fetch("http://localhost:8080/clients/delete/" + id, {
+		fetch("https://heroku-secretary.herokuapp.com/clients/delete/" + id, {
 			method: 'DELETE',
 			header: {
 				'Accept': 'application/json',
@@ -55,7 +55,7 @@ class App extends React.Component {
 			// let clients = this.state.clients.filter(client => {
 			// 	return client
 			// });
-		// fetch("http://localhost:8080/clients/update/" + client.id,{method: 'PUT'})
+		// fetch("https://heroku-secretary.herokuapp.com/clients/update/" + client.id,{method: 'PUT'})
 		// 	.then(response => response.json())
 		// 	.then(data => client = data)
 		// 	.then( clients => this.setState({clients: clients}))

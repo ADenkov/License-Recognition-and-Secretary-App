@@ -19,7 +19,7 @@ class Register extends Component{
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(this.state)
         };
-        fetch('http://localhost:8080/clients/add', requestOptions)
+        fetch('https://heroku-secretary.herokuapp.com/clients/add', requestOptions)
             .then(response => response.json())
             .then(data => this.setState({ client: data.id }))
             .then( () => window.location.href = '/');
@@ -30,19 +30,19 @@ class Register extends Component{
             [e.target.id]:e.target.value
         })
     }
-    addClient = (newClient) => {
+    // addClient = (newClient) => {
 
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(newClient)
-        };
-        fetch('http://localhost/clients/add', requestOptions)
-            .then(response => response.json())
-            .then(data => this.setState({ client: data.id }));
+    //     const requestOptions = {
+    //         method: 'POST',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify(newClient)
+    //     };
+    //     fetch('http://localhost/clients/add', requestOptions)
+    //         .then(response => response.json())
+    //         .then(data => this.setState({ client: data.id }));
 
 
-    }
+    // }
 
     render() {
         return(
