@@ -4,9 +4,9 @@ name: Maven CI/CD
 
 on:
  push:
-    branches: [ production ]
-  pull_request:
-    branches: [ production ]
+    branches: [ temporal1 ]
+ pull_request:
+    branches: [ temporal1 ]
 
 jobs:
   build_and_test:
@@ -21,4 +21,4 @@ jobs:
         java-version: 14
 
     - name: Build project with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn -B package  /pom.xml
