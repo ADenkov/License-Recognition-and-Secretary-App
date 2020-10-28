@@ -1,3 +1,6 @@
 language: java
-before_install: cd PAAS
+before_install: 
+  -cd PAAS
+  - sbt ++$TRAVIS_SCALA_VERSION package
+
 
