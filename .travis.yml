@@ -1,4 +1,2 @@
 language: java
-./PAAS/mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-jdk:
-  -oraclejdk8
+
