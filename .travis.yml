@@ -3,5 +3,7 @@ before_install:
   - echo -e "machine github.com\n  login $GITHUB_TOKEN" > ~/.netrc
   - git lfs pull
   -cd PAAS
-
+branches:
+  only:
+  - master
 
