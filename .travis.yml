@@ -1,3 +1,3 @@
 language: java
-script:
-  -chmod build.sh
+before_install: cd PAAS
+
