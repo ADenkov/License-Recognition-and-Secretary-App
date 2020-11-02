@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 
 class Update extends Component{
-    state ={
+    state = {
          //  client: this.props.getClient,
         id:1,
          firstName:null ,
