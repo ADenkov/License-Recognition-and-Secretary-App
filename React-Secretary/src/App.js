@@ -1,9 +1,21 @@
 import React from "react";
 import "./App.css";
-import Clients from "./components/Clients"
-import Register from "./logic/Register"
+import Clients from "./components/Client"
+import ClientInfo from "./components/ClientInfo"
+import RegisterClient from "./components/register.component"
+import ButtonPage from "./ButtonPage"
+import Header from "./Layots/Header"
+
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import UpdateClient from "./UpdateClient";
+import Update from "./logic/Update";
+import Table from "./components/table.component";
+import DeleteClient from "./DeleteClient";
+
 
 class App extends React.Component {
+
+	
 
 	state ={
 
@@ -74,21 +86,22 @@ class App extends React.Component {
 	render() {
 		return (
 			<div>
-				<Clients deleteClient={this.deleteClient} clients = {this.state.clients}/>
-				<Register addClient={this.addClient}/>
+				{/* <Clients deleteClient={this.deleteClient} clients = {this.state.clients}/>
+				<Register addClient={this.addClient}/> */}
 				{/*<Update getClient = {this.getClient}/>*/}
-				{/*<Router>*/}
-				{/*	<div className="App">*/}
-				{/*		<header className="App-header">*/}
-				{/*			<Route path="/update" component={UpdatePage} />*/}
-				{/*			<Route path="/btnPage" component={ButtonPage} />*/}
-				{/*			<Route path="/clientInfo" component={ClientInfo} />*/}
-				{/*			<Route path="/registerClient" component={RegisterClient} />*/}
-				{/*			<Route path="/deleteClient" component={DeleteClient} />*/}
-				{/*		</header>*/}
-				{/*	</div>*/}
-				{/*</Router>*/}
+				<Router>
+					<div className="App">
+					<Header />
+						
+							<Route path="/updateClient" component={Table} /> 
+							<Route path="/clientsInfo" component={DeleteClient} />
+							<Route path="/registerClient" component={RegisterClient} />
+					
+					</div>
+				</Router>
 			</div>
+
+			
 		)
   }
 }

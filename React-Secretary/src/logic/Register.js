@@ -21,7 +21,8 @@ class Register extends Component{
         };
         fetch('https://heroku-secretary.herokuapp.com/clients/add', requestOptions)
             .then(response => response.json())
-            .then(data => this.setState({ client: data.id }));
+            .then(data => this.setState({ client: data.id }))
+            .then( () => window.location.href = '/');
 
     }
     handleChange = (e) => {
@@ -63,7 +64,7 @@ class Register extends Component{
                  <input onChange = {this.handleChange} className="form-control" id="licensePlate" placeholder="License Plate"/>
              </div>
              <div className="form-group text-left">
-                 <input onChange = {this.handleChange} type="tel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" className="form-control" id="phoneNumber" placeholder="Phone Number"/>
+                 <input onChange = {this.handleChange} type="tel"  className="form-control" id="phoneNumber" placeholder="Phone Number"/>
              </div>
              <div className="form-group text-left">
                  <input onChange = {this.handleChange} type="email" className="form-control" id="email" placeholder="Email"/>

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Login from "./Login";
-import Logo from "./images/login.png"
 import "./App.css";
 
 function LoginComponents(props) {
@@ -8,7 +7,7 @@ function LoginComponents(props) {
     <span className="h3">
       <h1> Login </h1> <hr></hr>
       <center>
-        <img src={Logo} alt="logo img" />
+        <img src="./images/login.png" alt="logo img" />
         <div className="col-12 col-lg-4 mt-2 hv-center">
           <form>
             <div className="form-group text-left">
