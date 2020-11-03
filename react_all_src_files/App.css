@@ -1,0 +1,110 @@
+.App {
+  text-align: center;
+}
+
+.tableClients {
+  margin-top: 5%;
+  width:60%;
+  border: whitesmoke solid 1.5px;
+  background-color: #17a2b8;
+}
+
+.tableHeader{
+  background-color: #20b2cc;
+  border: whitesmoke solid 1.5px;  color: black;
+  font-weight: normal;
+  font-size: 22px;
+}
+
+td{
+  background-color: rgb(182, 211, 216);
+  border: whitesmoke solid 1.5px;
+  color: black;
+  font-weight: normal;
+  font-size: 18px;
+
+}
+
+.App {
+  background-color: #d1cacacc;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+  font-size: calc(5px + 2vmin);
+  color: white;
+}
+hr { 
+  background-color: white;
+  border-width: 3px;
+  width: 100%;
+} 
+.btn.btn-info.crud{
+  margin-top: 22.5%;
+  margin-right: 2%;
+  margin-left: 2%;
+  font-size: 30px;
+  padding: 20px 40px;
+  background-color: rgba(80, 78, 78, 0.993);
+  border: none;
+}
+img{
+  width: 200px;
+  height: 200px;
+  margin-bottom: 3%;
+  margin-top: 2.5%;
+}
+
+.form-group.text-left{
+margin-bottom: 7%;
+width: 400px;
+}
+
+.form-control{
+font-size: 50px;
+}
+
+span.h3 {
+  text-align: left;
+  margin-top: 2%;
+  font-size: xx-large;
+}
+
+h1{
+  margin-left: 5%;
+  padding: 1%;
+
+}
+
+/* table */
+
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 70%;
+  margin-left: 16%;
+  margin-top: 6.5%;
+  position: center;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  
+}
+
+
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #2d80d2;
+  color: white;
+}
+
+
+.imglogo{
+  width: 100px;
+  height: 40px;
+}

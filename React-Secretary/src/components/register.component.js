@@ -1,64 +1,55 @@
 import React, { Component } from "react";
-import App from "../App";
-import  { Redirect } from 'react-router-dom'
-import { useHistory } from "react-router-dom";
-
+import ClientDataService from "../logic/ClientDataService";
 
 class Register extends Component {
-    state = {
-        firstName: null,
-        lastName: null,
-        email: null,
-        licensePlate: null,
-        phoneNumber: null
-    }
-    
-    handleSubmit = (e) => {
-        e.preventDefault();
-        // this.props.addClient(this.state);
-        // console.log(JSON.stringify(this.state));
-
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(this.state)
+    constructor(props) {
+        super(props);
+        this.handleChange = this.handleChange.bind(this);
+        this.addClient = this.addClient.bind(this);
+        this.state = {
+            currentClient:{
+                firstName: "",
+                lastName: "",
+                email: "",
+                licensePlate: "",
+                phoneNumber: ""
+            },
+            message:""
         };
-        fetch('http://localhost:8080/clients/add', requestOptions)
-            .then( () => window.location.href ='/' )
-            
-
-
     }
-    handleChange = (e) => {
+
+    handleChange = (e) =>{
         this.setState({
             [e.target.id]: e.target.value
         })
     }
-    addClient = (newClient) => {
 
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(newClient)
+    addClient = () =>{
+        var data = {
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+            email: this.state.email,
+            licensePlate: this.state.licensePlate,
+            phoneNumber: this.state.phoneNumber
         };
-        fetch('http://localhost/clients/add', requestOptions)
-            .then(response => response.json())
-            .then(data => this.setState({ client: data.id }));
-    }
-
-    componentDidMount() {
-        fetch("http://localhost:8080/clients/all").then(response => {
-            response.json().then(clients => this.setState({ clients: clients }))
-        });
-
-    }
-
-    addClient = (client) => {
-        client.key = Math.random();
-        let clients = [...this.state.clients, client]
-        this.setState({
-            clients: clients
-        })
+        //console.log(data);
+        ClientDataService.postClient(data)
+            .then(response => {
+                this.setState({
+                    currentClient:{
+                        firstName: response.data.firstName,
+                        lastName: response.data.lastName,
+                        email: response.data.email,
+                        licensePlate: response.data.licensePlate,
+                        phoneNumber: response.data.phoneNumber
+                    },
+                    message:"Client Added!"
+                });
+                console.log(response.data);
+            })
+            .catch(e => {
+                console.log(e);
+            });
     }
 
     render() {
@@ -66,13 +57,18 @@ class Register extends Component {
             <div>
                 <span className="h3">
                     <h1>Register Client</h1>
-                    <hr></hr>
-                    <br></br>
+                    <hr/>
+                    <br/>
                     <center>
                         <div className="col-12 col-lg-4 mt-2 hv-center">
-                            <form onSubmit={this.handleSubmit}>
+                            <form>
                                 <div className="form-group text-left">
-                                    <input onChange={this.handleChange} className="form-control" id="firstName" placeholder="First Name" />
+                                    <input
+                                        onChange={this.handleChange}
+                                        className="form-control"
+                                        id="firstName"
+                                        placeholder="First Name"
+                                    />
                                 </div>
                                 <div className="form-group text-left">
                                     <input onChange={this.handleChange} className="form-control" id="lastName" placeholder="Last Name" />
@@ -86,13 +82,14 @@ class Register extends Component {
                                 <div className="form-group text-left">
                                     <input onChange={this.handleChange} type="email" className="form-control" id="email" placeholder="Email" />
                                 </div>
-                                <a onClick={this.handleSubmit} className="btn btn-info" role="button">Register Client</a>
-                                <br></br>
+                                <a onClick={this.addClient} className="btn btn-info" role="button">Register Client</a>
+                                <br/>
                             </form>
                         </div>
                     </center>
                 </span>
-                <br></br>
+                <br/>
+                <p>{this.state.message}</p>
             </div>
         )
     }

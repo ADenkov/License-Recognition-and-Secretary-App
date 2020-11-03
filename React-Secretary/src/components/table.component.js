@@ -1,42 +1,48 @@
 import React from 'react';
-//  import clientservice  from '../logic/client-service';
-import { getAll } from "../logic/client-service";
+import ClientDataService from "../logic/ClientDataService";
+import { Link } from "react-router-dom";
 
 class Table extends React.Component{
 
   constructor(props) {
     super(props);
-        this.state = {clients: []};
+    this.state = {clients: []};
+    this.retrieveClients = this.retrieveClients.bind(this);
   }
 
   componentDidMount () {
-  //   fetch("http://localhost:8080/clients/all").then(response => {
-  // response.json().then( clients => this.setState({clients: clients}))
-  //   });
+      this.retrieveClients();
+  }
 
- //getAll().then(response => {console.log(response.data), this.setState({clients: response.data})});
- 
+    retrieveClients() {
+        ClientDataService.getAll()
+            .then(response => {
+                this.setState({
+                    clients: response.data
+                });
+                console.log(response.data);
+            })
+            .catch(e => {
+                console.log(e);
+            });
+    }
+    deleteClient = (id) => {
+      if(window.confirm('Are you sure?')) {
+          ClientDataService.deleteClient(id)
+              .then(response => {
+                  console.log(response.data);
+              })
+              .catch(e => {
+                  console.log(e);
+              });
+          this.retrieveClients();
+          window.location.reload(false);
+      }
+  }
 
-
-}
-deleteClient = (id) => {
-  if(window.confirm('Are you sure')) {
-    let clients = this.state.clients.filter(client => {
-        return client.id !== id
-    });
-    //Using some sort of fetch to display the deletion
-    this.setState({
-        clients: clients
-    })
-    fetch("http://localhost:8080/clients/delete/" + id, {
-        method: 'DELETE',
-        header: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-    })
-}
-}
+  emailClient = (id) =>{
+      alert('not implemented');
+  }
 
   render(){
   return (
@@ -55,12 +61,19 @@ deleteClient = (id) => {
       { (this.state.clients.length > 0) ? this.state.clients.map( (client, index) => {
            return (
             <tr key={ index }>
-              <td>{ client.firstName }</td>
-              <td>{ client.lastName }</td>
-              <td>{ client.licensePlate}</td>
-              <td>{ client.email }</td>
-              <td>{ client.phoneNumber }</td>
-              <td><center><button onClick={() => this.deleteClient(client.id)} className="btn btn-danger">Delete</button></center></td> 
+                <td>{ client.firstName }</td>
+                <td>{ client.lastName }</td>
+                <td>{ client.licensePlate}</td>
+                <td>{ client.email }</td>
+                <td>{ client.phoneNumber }</td>
+                <td><center><button onClick={() => this.emailClient(client.id)} className="btn btn-info">Email</button></center></td>
+                <td><center><button className="btn btn-warning">
+                    <Link to={"/updateClient/" + client.id} className="nav-link">
+                        Update
+                    </Link></button></center>
+                </td><td><center><button onClick={() => this.deleteClient(client.id)} className="btn btn-danger">Delete</button></center></td>
+
+
             </tr>
           )
          }) : <tr><td colSpan="5">Loading...</td></tr> }
