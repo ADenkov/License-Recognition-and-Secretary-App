@@ -19,13 +19,13 @@ public class Client {
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "email", unique = true)
+    @Column(name = "email")
     private String email;
 
-    @Column(name="license_plate", length = 8, unique = true)
+    @Column(name="license_plate", length = 8)
     private String licensePlate;
 
-    @Column(name = "phone_number", length = 13, unique = true)
+    @Column(name = "phone_number", length = 13)
     private String phoneNumber;
 
     public Client(){}
