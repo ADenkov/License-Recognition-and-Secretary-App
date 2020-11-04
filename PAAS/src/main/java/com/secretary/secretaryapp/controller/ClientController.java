@@ -1,16 +1,16 @@
 package com.secretary.secretaryapp.controller;
 
 
+import com.secretary.secretaryapp.email.EmailService;
 import com.secretary.secretaryapp.model.Client;
 import com.secretary.secretaryapp.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.MailSendException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,6 +21,9 @@ import java.util.Optional;
 public class ClientController {
 @Autowired
     private ClientRepository clientRepository;
+
+    @Autowired
+    private EmailService emailService;
 
 
     @GetMapping("/all")
@@ -42,11 +45,7 @@ public class ClientController {
     public ResponseEntity<Client> getClientById(@PathVariable("id") long id) {
         Optional<Client> clientData = clientRepository.findById(id);
 
-        if (clientData.isPresent()) {
-            return new ResponseEntity<>(clientData.get(), HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        return clientData.map(client -> new ResponseEntity<>(client, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @PostMapping("/add")
@@ -95,7 +94,17 @@ public class ClientController {
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
 
+    @PostMapping("/sendmail/{email}")
+    public ResponseEntity<HttpStatus> sendmail(@PathVariable("email") String email) {
+
+        try{
+            emailService.sendMail(email, "Parking Spot", "Your Parking spot is...");
+            return new ResponseEntity<>(HttpStatus.OK);
+        }catch(MailSendException s){
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
 }
