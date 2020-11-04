@@ -40,8 +40,14 @@ class Table extends React.Component{
       }
   }
 
-  emailClient = (id) =>{
-      alert('not implemented');
+  emailClient = (email) => {
+      ClientDataService.sendEmail(email)
+          .then(response => {
+              alert(response.data);
+          })
+          .catch(e => {
+              console.log(e);
+          });
   }
 
   render(){
@@ -68,7 +74,7 @@ class Table extends React.Component{
                 <td>{ client.licensePlate}</td>
                 <td>{ client.email }</td>
                 <td>{ client.phoneNumber }</td>
-                <td><center><button onClick={() => this.emailClient(client.id)} className="btn btn-info">Email</button></center></td>
+                <td><center><button onClick={() => this.emailClient(client.email)} className="btn btn-info">Email</button></center></td>
                 <td><center><button className="btn btn-warning">
                     <Link to={"/updateClient/" + client.id} className="nav-btn">
                         Update

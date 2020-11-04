@@ -20,6 +20,10 @@ class ClientDataService{
          return http.delete("/clients/deleteAll");
      }
 
+    sendEmail(email){
+        return http.post(`/clients/sendmail/${email}`);
+    }
+
  }
 export default new ClientDataService();
 
