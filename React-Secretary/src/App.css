@@ -6,18 +6,18 @@
   margin-top: 5%;
   width:60%;
   border: whitesmoke solid 1.5px;
-  background-color: #17a2b8;
+  background-color: #45838d;
 }
 
 .tableHeader{
-  background-color: #20b2cc;
+  background-color: #45838d;
   border: whitesmoke solid 1.5px;  color: black;
   font-weight: normal;
   font-size: 22px;
 }
 
 td{
-  background-color: rgb(182, 211, 216);
+  background-color: rgb(141, 141, 141);
   border: whitesmoke solid 1.5px;
   color: black;
   font-weight: normal;
@@ -108,3 +108,20 @@ h1{
   width: 100px;
   height: 40px;
 }
+
+
+.nav-item{
+ margin-left: 100px;
+}
+
+.btn-warning{
+margin-left: 10px;
+margin-right: 10px;
+}
+
+.btn-danger{
+  margin-left: 10px;
+margin-right: 10px;
+}
+
+

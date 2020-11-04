@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ClientDataService from '../logic/ClientDataService';
-import {Link} from "react-router-dom";
+import {BrowserRouter, Link, Redirect} from "react-router-dom";
 
 export default class Update extends Component{
   constructor(props){
@@ -58,19 +58,28 @@ export default class Update extends Component{
     }
 
     updateClient = () =>{
-        ClientDataService.updateClient(
+        if(this.state.currentClient.firstName != "" || this.state.currentClient.lastName != "" || this.state.currentClient.licencePlate !="" || this.state.currentClient.phoneNumber.length == 9)
+        {ClientDataService.updateClient(
             this.state.currentClient.id,
             this.state.currentClient
         )
             .then(response => {
                 console.log(response.data);
                 this.setState({
-                    message: "The client was updated successfully!"
+                    alert: "The client was updated successfully!"
                 });
+            })
+            .then(()=>{
+                this.props.history.push('/clients')
             })
             .catch(e => {
                 console.log(e);
             });
+        }
+        else{
+            alert("The input you gave is inorrect")
+        }
+            
     }
 
     render() {
@@ -134,11 +143,12 @@ export default class Update extends Component{
                                     onChange = {this.handleChange}
                                 />
                             </div>
-                            <Link to={"/clients"} className="btn btn-danger">
+                            
+                            <Link to={"/clients"} className="btn btn-danger"  >
                                     Cancel
                             </Link>
-                            <a onClick={this.updateClient} className="btn btn-warning" role="button">
-                                Update Client
+                            <a onClick={this.updateClient} className="btn btn-warning" role="button" >
+                               Update Client 
                             </a>
                             <br/>
                         </form>

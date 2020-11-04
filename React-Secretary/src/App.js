@@ -18,9 +18,10 @@ class App extends React.Component {
 				<Router>
 					<div className="App">
 						<Header />
-						<Route path="/clients" component={Table} />
-						<Route path="/updateClient/:id" component={UpdateClient} />
-						<Route path="/registerClient" component={RegisterClient} />
+						<Route exact path="/" component={RegisterClient} />
+						<Route exact path="/clients" component={Table} />
+						<Route exact path="/updateClient/:id" component={UpdateClient} />
+						<Route exact path="/registerClient" component={RegisterClient} />
 					</div>
 				</Router>
 			</div>

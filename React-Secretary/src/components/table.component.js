@@ -55,6 +55,8 @@ class Table extends React.Component{
           <th className="tableHeader">License Plate</th>
           <th className="tableHeader">Email</th>
           <th className="tableHeader">Phone Number</th>
+         
+          
         </tr>
       </thead>
       <tbody>
@@ -68,7 +70,7 @@ class Table extends React.Component{
                 <td>{ client.phoneNumber }</td>
                 <td><center><button onClick={() => this.emailClient(client.id)} className="btn btn-info">Email</button></center></td>
                 <td><center><button className="btn btn-warning">
-                    <Link to={"/updateClient/" + client.id} className="nav-link">
+                    <Link to={"/updateClient/" + client.id} className="nav-btn">
                         Update
                     </Link></button></center>
                 </td><td><center><button onClick={() => this.deleteClient(client.id)} className="btn btn-danger">Delete</button></center></td>

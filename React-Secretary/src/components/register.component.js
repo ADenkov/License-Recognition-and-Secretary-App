@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ClientDataService from "../logic/ClientDataService";
+import {Link} from "react-router-dom";
 
 class Register extends Component {
     constructor(props) {
@@ -32,7 +33,10 @@ class Register extends Component {
             licensePlate: this.state.licensePlate,
             phoneNumber: this.state.phoneNumber
         };
+        
         //console.log(data);
+        if(this.state.currentClient.firstName !== "" || this.state.currentClient.lastName != "" || this.state.currentClient.licencePlate != "" || this.state.currentClient.phoneNumber.length == 9)
+       {
         ClientDataService.postClient(data)
             .then(response => {
                 this.setState({
@@ -44,12 +48,22 @@ class Register extends Component {
                         phoneNumber: response.data.phoneNumber
                     },
                     message:"Client Added!"
+                    
                 });
+                
                 console.log(response.data);
             })
+            .then(()=>{
+                this.props.history.push('/clients')
+            })
+            
             .catch(e => {
                 console.log(e);
             });
+        }
+        else{
+            alert("there is an invalid data input")
+        }
     }
 
     render() {
@@ -82,7 +96,9 @@ class Register extends Component {
                                 <div className="form-group text-left">
                                     <input onChange={this.handleChange} type="email" className="form-control" id="email" placeholder="Email" />
                                 </div>
+                               
                                 <a onClick={this.addClient} className="btn btn-info" role="button">Register Client</a>
+                                
                                 <br/>
                             </form>
                         </div>
