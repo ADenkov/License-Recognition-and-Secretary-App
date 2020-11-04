@@ -46,6 +46,7 @@ class Table extends React.Component{
               alert(response.data);
           })
           .catch(e => {
+              alert('Error sending email, check if the email is correct');
               console.log(e);
           });
   }
