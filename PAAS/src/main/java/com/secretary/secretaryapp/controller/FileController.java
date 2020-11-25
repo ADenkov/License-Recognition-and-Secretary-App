@@ -1,5 +1,6 @@
 package com.secretary.secretaryapp.controller;
 
+import com.openalpr.jni.LicenseReader;
 import com.secretary.secretaryapp.message.ResponseMessage;
 import com.secretary.secretaryapp.model.FileInfo;
 import com.secretary.secretaryapp.service.FilesStorageService;
@@ -30,8 +31,9 @@ public class FileController {
             try {
                 storageService.save(file);
 
+
                 message = "Uploaded the file successfully: " + file.getOriginalFilename();
-                return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message));
+                return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage("License plate number recognized as: " + LicenseReader.licenseReader("uploads/" + file.getOriginalFilename())));
             } catch (Exception e) {
                 message = "Could not upload the file: " + file.getOriginalFilename() + "!";
                 return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseMessage(message));

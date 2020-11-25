@@ -43,6 +43,7 @@ export default class UploadFiles extends Component {
             this.setState({
               message: response.data.message,
             });
+            console.log(response.data.message);
             return UploadService.getFiles();
           })
           .then((files) => {
