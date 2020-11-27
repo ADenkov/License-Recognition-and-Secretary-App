@@ -22,10 +22,10 @@ public class Client {
     @Column(name = "email")
     private String email;
 
-    @Column(name="license_plate", length = 8)
+    @Column(name="license_plate")
     private String licensePlate;
 
-    @Column(name = "phone_number", length = 13)
+    @Column(name = "phone_number")
     private String phoneNumber;
 
     public Client(){}

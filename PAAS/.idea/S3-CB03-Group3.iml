@@ -40,6 +40,12 @@
     <orderEntry type="library" name="OpenALPRtest" level="project" />
     <orderEntry type="library" name="PAAS" level="project" />
     <orderEntry type="library" name="Maven: commons-io:commons-io:2.1" level="project" />
+    <orderEntry type="library" name="Maven: com.openalpr.jni:openalpr:{1.0}" level="project" />
+    <orderEntry type="library" name="Maven: com.openalpr.jni:openalprjni:{1.0}" level="project" />
+    <orderEntry type="library" name="Maven: com.openalpr.jni:liblept170:{1.0}" level="project" />
+    <orderEntry type="library" name="Maven: com.openalpr.jni:openalpr-net:{1.0}" level="project" />
+    <orderEntry type="library" name="Maven: com.openalpr.jni:openalprpy:{1.0}" level="project" />
+    <orderEntry type="library" name="Maven: com.openalpr.jni:opencv_world300:{1.0}" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-mail:2.3.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter:2.3.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:2.3.4.RELEASE" level="project" />
