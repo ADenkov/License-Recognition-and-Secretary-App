@@ -37,6 +37,15 @@ public class FilesStorageServiceImpl implements FilesStorageService {
     }
 
     @Override
+    public void delete(MultipartFile file) {
+        try {
+            Files.delete(this.root.resolve(file.getOriginalFilename()));
+        } catch (Exception e) {
+            throw new RuntimeException("Could not store the file. Error: " + e.getMessage());
+        }
+    }
+
+    @Override
     public Resource load(String filename) {
         try {
             Path file = root.resolve(filename);

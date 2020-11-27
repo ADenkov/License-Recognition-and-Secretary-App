@@ -1,8 +1,11 @@
 package com.secretary.secretaryapp.controller;
 
 import com.openalpr.jni.LicenseReader;
+import com.secretary.secretaryapp.email.EmailService;
 import com.secretary.secretaryapp.message.ResponseMessage;
+import com.secretary.secretaryapp.model.Client;
 import com.secretary.secretaryapp.model.FileInfo;
+import com.secretary.secretaryapp.repository.ClientRepository;
 import com.secretary.secretaryapp.service.FilesStorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -10,6 +13,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.MailSendException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -19,21 +23,36 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin
 public class FileController {
 
         @Autowired
         FilesStorageService storageService;
+
+        @Autowired
+    ClientRepository clientRepository;
+
+    @Autowired
+    private EmailService emailService;
 
         @PostMapping("/upload")
         public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file) {
             String message = "";
             try {
                 storageService.save(file);
-
-
+                String licensePlate = LicenseReader.licenseReader("uploads/" + file.getOriginalFilename());
+                Client client = clientRepository.findByLicensePlate(licensePlate);
+                storageService.delete(file);
+                if (client!=null)
+                {
+                    try{
+                        emailService.sendMail(client.getEmail(), "Parking Spot", "Your Parking spot is...");
+                    }catch(MailSendException s){
+                        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new ResponseMessage("Error sending email to client, please try again!"));
+                    }
+                }
                 message = "Uploaded the file successfully: " + file.getOriginalFilename();
-                return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage("License plate number recognized as: " + LicenseReader.licenseReader("uploads/" + file.getOriginalFilename())));
+                return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage("License plate number recognized as: " + licensePlate));
             } catch (Exception e) {
                 message = "Could not upload the file: " + file.getOriginalFilename() + "!";
                 return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseMessage(message));

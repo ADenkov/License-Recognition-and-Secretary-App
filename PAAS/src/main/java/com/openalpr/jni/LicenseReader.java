@@ -43,15 +43,16 @@ public class LicenseReader {
         }
 
 
-        System.out.println("OpenALPR Version: " + alpr.getVersion());
-        System.out.println("Image Size: " + results.getImgWidth() + "x" + results.getImgHeight());
-        System.out.println("Processing Time: " + results.getTotalProcessingTimeMs() + " ms");
-        System.out.println("Found " + results.getPlates().size() + " results");
-
-        System.out.format("  %-15s%-8s\n", "Plate Number", "Confidence");
+//        System.out.println("OpenALPR Version: " + alpr.getVersion());
+//        System.out.println("Image Size: " + results.getImgWidth() + "x" + results.getImgHeight());
+//        System.out.println("Processing Time: " + results.getTotalProcessingTimeMs() + " ms");
+//        System.out.println("Found " + results.getPlates().size() + " results");
+//
+//        System.out.format("  %-15s%-8s\n", "Plate Number", "Confidence");
 //        for (AlprPlateResult result : results.getPlates())
 //        {
 //            for (AlprPlate plate : result.getTopNPlates()) {
+        assert results != null;
         AlprPlate plate = results.getPlates().get(0).getTopNPlates().get(0);
                 if (plate.isMatchesTemplate())
                     System.out.print("  * ");

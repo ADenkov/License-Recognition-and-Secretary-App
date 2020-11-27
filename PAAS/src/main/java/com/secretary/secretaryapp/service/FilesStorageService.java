@@ -17,5 +17,7 @@ public interface FilesStorageService {
 
     public void deleteAll();
 
+    public void delete(MultipartFile file);
+
     public Stream<Path> loadAll();
 }

@@ -7,7 +7,7 @@ import UploadFiles from "../components/upload-files-component"
         return (
             <div>
                 
-                <nav className="navbar navbar-expand-sm navbar navbar-dark bg-dark">
+                <nav className="navbar navbar-expand-sm navbar navbar-light bg-white">
                 <div className="container">
                 <a className="navbar-brand" href="/registerClient">
           <img className="imglogo" src="images/sioux.png" alt=""/>
