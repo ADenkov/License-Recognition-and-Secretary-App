@@ -66,7 +66,7 @@ class TableComponent extends React.Component{
           <th className="tableHeader"></th>
           <th className="tableHeader"></th>
           <th className="tableHeader"></th>
-          
+
         </tr>
       </thead>
       <tbody>
@@ -79,8 +79,8 @@ class TableComponent extends React.Component{
                 <td className="tableCol">{ client.email }</td>
                 <td className="tableCol">{ client.phoneNumber }</td>
                 <td className="tableCol"><center><button onClick={() => this.emailClient(client.email)} className="btn btn-info">Email</button></center></td>
-                <td className="tableCol"><center><button className="btn btn-success" onclick="window.location.href='/updateClient/' {{+ client.id}}">
-                    <Link to={"/updateClient/" + client.id} >
+                <td className="tableCol"><center><button className="btn btn-warning" onClick="window.location.href='/updateClient/' {{+ client.id}}">
+                    <Link style={{color:"#FFFFFF"}} to={"/updateClient/" + client.id} >
                         Update
                     </Link></button></center>
                 </td><td className="tableCol"><center><button onClick={() => this.deleteClient(client.id)} className="btn btn-danger">Delete</button></center></td>

@@ -70,8 +70,8 @@ class Register extends Component {
         return (
             <div>
                 <span className="h3">
-                    <h1>Register Client</h1>
-                    <hr/>
+                    <h1 id={"title"}>Register Client</h1>
+                    <hr style={{backgroundColor:"#6aa5b3"}}/>
                     <br/>
                     <center>
                         <div className="col-12 col-lg-4 mt-2 hv-center">
@@ -97,7 +97,7 @@ class Register extends Component {
                                     <input onChange={this.handleChange} type="email" className="form-control" id="email" placeholder="Email" />
                                 </div>
                                
-                                <a onClick={this.addClient} className="btn btn-info" role="button">Register Client</a>
+                                <a onClick={this.addClient} className="btn btn-info" role="button" style={{backgroundColor:"#ff6a00"}}>Register Client</a>
                                 
                                 <br/>
                             </form>

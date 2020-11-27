@@ -9,8 +9,7 @@
 }
 
 .tableHeader{
-  background-color: #45838d;
-    color: black;
+  color: black;
   font-weight: normal;
   font-size: 18px;
   background-color: rgb(62, 68, 74);
@@ -72,7 +71,7 @@
 }
 
 .App {
-  background-color: #d1cacacc;
+  background-color: #FFF;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -170,6 +169,16 @@ h1{
 
 .nav-link:hover{
   border-top: #ff6a00 solid 3px;
+}
+/*.nav-bar{*/
+/*  box-shadow: 0 1px 1px rgba(0,0,0,.2), 0 1px 1px rgba(0,0,0,.4);*/
+/*}*/
+#title{
+  color: #ff6a00;
+}
+
+.avatar-pic {
+  width: 150px;
 }
 
 

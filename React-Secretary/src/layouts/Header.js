@@ -6,7 +6,6 @@ import UploadFiles from "../components/upload-files-component"
     render() {
         return (
             <div>
-                
                 <nav className="navbar navbar-expand-sm navbar navbar-light bg-white">
                 <div className="container">
                 <a className="navbar-brand" href="/registerClient">
@@ -28,7 +27,6 @@ import UploadFiles from "../components/upload-files-component"
                                     </Link>
                             </li>
                         </ul>
-
                         <ul className="navbar-nav">
                             <li className="nav-item">
                                 <Link to={"/registerClient"} className="nav-link">
@@ -43,18 +41,10 @@ import UploadFiles from "../components/upload-files-component"
                                 </Link>
                             </li>
                         </ul>
-
-                        
-                        {/*<ul className="navbar-nav">*/}
-                        {/*    <li className="nav-item">*/}
-                        {/*        <a className="nav-link" href="clientsInfo">*/}
-                        {/*            Delete  client*/}
-                        {/*        </a>*/}
-                        {/*    </li>*/}
-                        {/*</ul>*/}
                     </div>
                 </div>
             </nav>
+                <hr style={{backgroundColor:"#6aa5b3", height:"4vh"}}/>
             </div>
         )
     }

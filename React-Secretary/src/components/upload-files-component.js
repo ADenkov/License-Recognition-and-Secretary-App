@@ -82,29 +82,37 @@ export default class UploadFiles extends Component {
                 aria-valuenow={progress}
                 aria-valuemin="0"
                 aria-valuemax="100"
-                style={{ width: progress + "%" }}
+                style={{ width: progress + "%", backgroundColor:"#ff6a00" }}
               >
                 {progress}%
               </div>
             </div>
           )}
-  
+   <form class="md-form">
           <label className="btn btn-default">
             <input type="file" onChange={this.selectFile} />
           </label>
+
+
+   </form>
+
+
   
-          <button className="btn btn-success"
+          <button className="btn"
+                  style={{backgroundColor:"#ff6a00", color:"#FFF"}}
             disabled={!selectedFiles}
             onClick={this.upload}
           >
             Upload
           </button>
-  
+
           <div className="alert alert-light" role="alert">
             {message}
           </div>
-  
-          {/*<div className="card">*/}
+
+
+
+            {/*<div className="card">*/}
           {/*  <div className="card-header">List of Files</div>*/}
           {/*  <ul className="list-group list-group-flush">*/}
           {/*    {fileInfos &&*/}
