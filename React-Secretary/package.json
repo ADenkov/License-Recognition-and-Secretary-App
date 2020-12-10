@@ -16,6 +16,7 @@
     "react-bootstrap": "^1.4.0",
     "react-bootstrap-validation": "^0.1.11",
     "react-dom": "^16.13.1",
+    "react-native-video-upload": "^1.1.2",
     "react-phone-number-input": "^3.1.6",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
@@ -28,6 +29,7 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.2",
+    "cypress": "^6.1.0",
     "webpack-cli": "^3.1.0"
   },
   "scripts": {
@@ -51,5 +53,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://heroku-secretary.herokuapp.com"
+  "proxy": "http://localhost:8080"
 }

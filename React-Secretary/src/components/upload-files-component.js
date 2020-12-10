@@ -90,14 +90,14 @@ export default class UploadFiles extends Component {
           )}
    <form class="md-form">
           <label className="btn btn-default">
-            <input type="file" onChange={this.selectFile} />
+            <input id="selectFile" type="file" onChange={this.selectFile} />
           </label>
 
 
    </form>
 
 
-  
+      <div id="upload">
           <button className="btn"
                   style={{backgroundColor:"#ff6a00", color:"#FFF"}}
             disabled={!selectedFiles}
@@ -105,6 +105,7 @@ export default class UploadFiles extends Component {
           >
             Upload
           </button>
+          </div>
 
           <div className="alert alert-light" role="alert">
             {message}
