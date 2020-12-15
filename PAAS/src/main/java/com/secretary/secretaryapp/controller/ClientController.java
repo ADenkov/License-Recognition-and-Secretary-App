@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 
-@Controller
+@RestController
 @RequestMapping("/clients")
 @CrossOrigin(origins = {"*", "*"})
 public class ClientController {
@@ -29,16 +29,6 @@ public class ClientController {
     @GetMapping("/all")
     public @ResponseBody List<Client> getAllClients() {
        return clientRepository.findAll();
-//        try {
-//            List<Client> users = new ArrayList<Client>();
-//            clientRepository.findAll().forEach(users::add);
-//            if (users.isEmpty()) {
-//                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//            }
-//            return new ResponseEntity<>(users, HttpStatus.OK);
-//        } catch (Exception e) {
-//            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-//        }
     }
 
     @GetMapping("/{id}")

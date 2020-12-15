@@ -67,22 +67,24 @@ class Register extends Component {
     }
 
     handleChange = (e) => {
-        this.setState({
-            [e.target.id]: e.target.value
-        })
+            this.setState(prevState => ({
+                currentClient: {
+                    ...prevState.currentClient,
+                    [e.target.id]: e.target.value
+                }
+            }));
     }
 
     addClient = () => {
         const data = {
-            firstName: this.state.firstName,
-            lastName: this.state.lastName,
-            email: this.state.email,
-            licensePlate: this.state.licensePlate,
-            phoneNumber: this.state.phoneNumber
+            firstName: this.state.currentClient.firstName,
+            lastName: this.state.currentClient.lastName,
+            email: this.state.currentClient.email,
+            licensePlate: this.state.currentClient.licensePlate,
+            phoneNumber: this.state.currentClient.phoneNumber
         };
 
-        console.log(this.state.firstName);
-        if (this.state.firstName !== undefined && this.state.lastName !== undefined && this.state.licencePlate !== undefined) {
+        if (this.state.currentClient.firstName !== undefined && this.state.currentClient.lastName !== undefined && this.state.currentClient.email !== undefined && this.state.currentClient.licensePlate !== undefined && this.state.currentClient.phoneNumber !== undefined) {
             ClientDataService.postClient(data)
                 .then(response => {
                     this.setState({

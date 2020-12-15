@@ -26,7 +26,7 @@ export default class UploadFiles extends Component {
           selectedFiles: event.target.files,
         });
     }
-    upload=()=> {
+    upload = () =>{
         let currentFile = this.state.selectedFiles[0];
     
         this.setState({

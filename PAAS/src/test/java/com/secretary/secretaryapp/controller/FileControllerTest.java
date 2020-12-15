@@ -82,7 +82,7 @@ class FileControllerTest {
     @Test
     void uploadFile(){
         storageService.save(files.get(0));
-//        String licensePlate = LicenseReader.licenseReader("uploads/" + files.get(0).getOriginalFilename());
+        String licensePlate = LicenseReader.licenseReader("uploads/" + files.get(0).getOriginalFilename());
         Client client = clientRepository.findByLicensePlate("1234");
         assertEquals("",client.getFirstName());
     }

@@ -10,9 +10,6 @@ import java.nio.file.Files;
 public class LicenseReader {
 
     public static String licenseReader(String licensePlate) {
-
-
-
         String country = "eu", configfile = "openalpr.conf", runtimeDataDir = "runtime_data";
 
         if (licensePlate.equals("")) {

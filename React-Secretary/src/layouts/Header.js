@@ -37,7 +37,7 @@ import UploadFiles from "../components/upload-files-component"
                         <ul className="navbar-nav">
                             <li className="nav-item">
                                 <Link id="uploadImage"to={"/uploadImage"} className="nav-link">
-                                Upload Image
+                                Upload
                                 </Link>
                             </li>
                         </ul>
