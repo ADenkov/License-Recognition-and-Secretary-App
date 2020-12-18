@@ -5,7 +5,7 @@ import java.util.List;
 
 
 import com.openalpr.jni.LicenseReader;
-import com.secretary.secretaryapp.controller.ClientService;
+
 import com.secretary.secretaryapp.email.EmailService;
 import com.secretary.secretaryapp.model.Client;
 import org.bytedeco.javacpp.*;

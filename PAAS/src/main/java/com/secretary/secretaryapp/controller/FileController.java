@@ -36,7 +36,7 @@ import static org.bytedeco.javacpp.swscale.*;
 
 @RestController
 @CrossOrigin
-public class FileController {
+public class  FileController {
         @Autowired
         FilesStorageService storageService;
 

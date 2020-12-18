@@ -55,7 +55,7 @@ class TableComponent extends React.Component{
   render(){
   return (
       <center>
-    <table class="zui-table zui-table-rounded" style={{width:"70%"}} >
+    <table className="zui-table zui-table-rounded" style={{width:"70%"}} >
     <thead>
       <tr>
       <th className="tableHeader">First Name</th>
@@ -78,12 +78,18 @@ class TableComponent extends React.Component{
                 <td className="tableCol">{ client.licensePlate}</td>
                 <td className="tableCol">{ client.email }</td>
                 <td className="tableCol">{ client.phoneNumber }</td>
-                <td className="tableCol"><center><button onClick={() => this.emailClient(client.email)} className="btn btn-info">Email</button></center></td>
+                <td className="tableCol"><center><button className="btn btn-info">
+                    <Link style={{color:"#FFFFFF"}} to={"/createAppointment/" + client.id} >
+                        Make Appointment
+                    </Link>
+                </button></center>
+                </td>
                 <td className="tableCol"><center><button className="btn btn-warning" onClick="window.location.href='/updateClient/' {{+ client.id}}">
                     <Link style={{color:"#FFFFFF"}} to={"/updateClient/" + client.id} >
                         Update
                     </Link></button></center>
-                </td><td className="tableCol"><center><button onClick={() => this.deleteClient(client.id)} className="btn btn-danger">Delete</button></center></td>
+                </td>
+                <td className="tableCol"><center><button onClick={() => this.deleteClient(client.id)} className="btn btn-danger">Delete</button></center></td>
             </tr>
           )
          }) : <tr><td colSpan="5">Loading...</td></tr> }

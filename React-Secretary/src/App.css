@@ -180,7 +180,50 @@ h1{
 .avatar-pic {
   width: 150px;
 }
+.createAppointmentHello{
+  color: rgb(17, 14, 14);
 
+}
+.createAppointmentDivforInput{
+  align-items: center;
+  justify-content: center;
+  padding: 2%;
+}
+.labelAppointment{
+  padding: 2%;
+}
+.margin3{
+  margin: 3%;
+}
+.centerTable{
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.divButtonAppointment{
+  padding: 4px;
+  margin: 3%;
+  justify-content:right;
+  align-items:flex-end;
+  align-self:flex-end;
+  
 
-
-
+}
+.buttonAppointment{
+  align-content:flex-end;
+  justify-content:right;
+  align-items:flex-end;
+}
+.right{
+  align-content: right;
+}
+.center{
+  padding: 4%;
+  align-items: center;
+  justify-content: center;
+}
+.blackFont{
+  width: 100%;
+  color: #336B6B;
+  padding: 5%;
+}

@@ -41,6 +41,13 @@ import UploadFiles from "../components/upload-files-component"
                                 </Link>
                             </li>
                         </ul>
+                        <ul className="navbar-nav">
+                            <li className="nav-item">
+                                <Link to={"/calendar"} className="nav-link">
+                                Calendar
+                                </Link>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </nav>

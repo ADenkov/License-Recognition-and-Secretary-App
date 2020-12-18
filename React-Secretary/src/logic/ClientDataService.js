@@ -23,6 +23,14 @@ class ClientDataService{
     sendEmail(email){
         return http.post(`/clients/sendmail/${email}`);
     }
+    makeAppointment(id,data){
+      // console.log(id,data);
+        return http.post(`/clients/makeAppointment/`+ id, data);
+    }
+    getAppointmentsForDate(date){
+        // console.log(date);
+        return http.get(`/clients/getAppointmentsForDate/${date}`);
+    }
 
  }
 export default new ClientDataService();

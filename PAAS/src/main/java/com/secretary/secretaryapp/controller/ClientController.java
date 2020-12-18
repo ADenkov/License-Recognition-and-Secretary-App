@@ -2,13 +2,14 @@ package com.secretary.secretaryapp.controller;
 
 
 import com.secretary.secretaryapp.email.EmailService;
+import com.secretary.secretaryapp.model.Appointment;
 import com.secretary.secretaryapp.model.Client;
 import com.secretary.secretaryapp.repository.ClientRepository;
+import com.secretary.secretaryapp.service.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.MailSendException;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,6 +25,9 @@ public class ClientController {
 
     @Autowired
     private EmailService emailService;
+
+    @Autowired
+    private AppointmentService appointmentService;
 
 
     @GetMapping("/all")
@@ -94,6 +98,26 @@ public class ClientController {
             return new ResponseEntity<>(HttpStatus.OK);
         }catch(MailSendException s){
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+    @PostMapping("/makeAppointment/{id}")
+    public ResponseEntity<HttpStatus> makeAppointment(@PathVariable("id") long personID, @RequestBody Appointment appointment){
+        try{
+            appointmentService.makeAppointment(personID,appointment.getDate(),appointment.getTime());
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+    @GetMapping("getAppointmentsForDate/{date}")
+    public ResponseEntity<List<Appointment>> getAppointmentsForDate(@PathVariable String date){
+        try{
+            List<Appointment> appointments = appointmentService.findAppointments(date);
+            return new ResponseEntity<>(appointments,HttpStatus.OK);
+        }
+        catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
     }
 

@@ -12,6 +12,7 @@ public class ClientService {
     @Autowired
     private ClientDao clientDao;
 
+
     public Collection<Client> getAllClients(){
         return  this.clientDao.getAllClients();
     }
