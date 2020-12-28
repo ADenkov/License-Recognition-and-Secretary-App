@@ -6,6 +6,7 @@ import com.secretary.secretaryapp.model.Appointment;
 import com.secretary.secretaryapp.model.Client;
 import com.secretary.secretaryapp.repository.ClientRepository;
 import com.secretary.secretaryapp.service.AppointmentService;
+import com.secretary.secretaryapp.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +22,7 @@ import java.util.Optional;
 @CrossOrigin(origins = {"*", "*"})
 public class ClientController {
 @Autowired
-    private ClientRepository clientRepository;
+    private ClientService clientService;
 
     @Autowired
     private EmailService emailService;
@@ -32,12 +33,12 @@ public class ClientController {
 
     @GetMapping("/all")
     public @ResponseBody List<Client> getAllClients() {
-       return clientRepository.findAll();
+       return clientService.findAll();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Client> getClientById(@PathVariable("id") long id) {
-        Optional<Client> clientData = clientRepository.findById(id);
+        Optional<Client> clientData = clientService.findById(id);
 
         return clientData.map(client -> new ResponseEntity<>(client, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
@@ -45,7 +46,7 @@ public class ClientController {
     @PostMapping("/add")
     public ResponseEntity<Client> createClient(@RequestBody Client client) {
         try {
-            clientRepository.save(client);
+            clientService.save(client);
             return new ResponseEntity<>(client, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -54,7 +55,7 @@ public class ClientController {
 
     @PutMapping("/update/{id}")
     public ResponseEntity<Client> updateClient(@PathVariable("id") long id, @RequestBody Client client) {
-        Optional<Client> clientData = clientRepository.findById(id);
+        Optional<Client> clientData = clientService.findById(id);
 
         if (clientData.isPresent()) {
             Client _client = clientData.get();
@@ -63,7 +64,7 @@ public class ClientController {
             _client.setEmail(client.getEmail());
             _client.setLicensePlate(client.getLicensePlate());
             _client.setPhoneNumber(client.getPhoneNumber());
-            clientRepository.save(_client);
+            clientService.save(_client);
             return new ResponseEntity<>(_client, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -73,7 +74,7 @@ public class ClientController {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<HttpStatus> deleteClient(@PathVariable("id") long id) {
         try {
-            clientRepository.deleteById(id);
+            clientService.deleteById(id);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -83,7 +84,7 @@ public class ClientController {
     @DeleteMapping("/deleteAll")
     public ResponseEntity<HttpStatus> deleteAllClients() {
         try {
-            clientRepository.deleteAll();
+            clientService.deleteAll();
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
