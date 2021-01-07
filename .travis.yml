@@ -1,9 +1,5 @@
 language: java
-before_install:
-  - echo -e "machine github.com\n  login $GITHUB_TOKEN" > ~/.netrc
-  - git lfs pull
-  -cd PAAS
-branches:
-  only:
-  - master
-
+jdk:
+  - jdk8
+script:
+  - ./mvnw clean install
