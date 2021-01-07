@@ -1,6 +1,0 @@
-language: java
-jdk:
-  - jdk8
-os: windows
-script:
-  - ./PAAS/mvnw clean install
