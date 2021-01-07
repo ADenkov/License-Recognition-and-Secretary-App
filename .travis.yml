@@ -2,4 +2,4 @@ language: java
 jdk:
   - jdk8
 script:
-  - ./mvnw clean install
+  - ./PAAS/mvnw clean install
