@@ -24,11 +24,11 @@
             <artifactId>opencsv</artifactId>
             <version>5.3</version>
         </dependency>
-        <dependency>
-            <groupId>com.openalpr.jni</groupId>
-            <artifactId>openalprjni</artifactId>
-            <version>1.0</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.openalpr.jni</groupId>-->
+<!--            <artifactId>openalprjni</artifactId>-->
+<!--            <version>1.0</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>nu.pattern</groupId>
             <artifactId>opencv</artifactId>

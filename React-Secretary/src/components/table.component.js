@@ -84,7 +84,7 @@ class TableComponent extends React.Component{
                     </Link>
                 </button></center>
                 </td>
-                <td className="tableCol"><center><button className="btn btn-warning" onClick="window.location.href='/updateClient/' {{+ client.id}}">
+                <td className="tableCol"><center><button className="btn btn-warning">
                     <Link style={{color:"#FFFFFF"}} to={"/updateClient/" + client.id} >
                         Update
                     </Link></button></center>

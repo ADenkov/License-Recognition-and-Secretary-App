@@ -8,7 +8,8 @@ class calendar extends Component{
 
   state={
     date:moment().format("DD-MM-YYYY"),
-    appointments:undefined
+    appointments:undefined,
+    personName:""
   }
 
   handleChange =(date)=>{
@@ -29,8 +30,13 @@ class calendar extends Component{
       })
     })
   }
-  componentDidUpdate(){
- 
+  getFullNameById(id){
+  ClientDataService.getClient(id).then(response => {
+    console.log(response.data.firstName + " " + response.data.lastName);
+    this.state.personName = response.data.firstName + " " + response.data.lastName;
+  }).catch(e => {
+    console.log(e);
+  });
   }
 
   render(){
@@ -42,7 +48,7 @@ class calendar extends Component{
             <tbody>
               <tr>
                 <td>
-                  <Calendar onChange={this.handleChange}></Calendar>
+                  <Calendar onChange={this.handleChange}/>
                 </td>
                 <td>
                   <section>
@@ -50,16 +56,16 @@ class calendar extends Component{
                       this.state.appointments ?
                       this.state.appointments.map(app =>
                         app ?
-                        <div>
+                        <div onLoad={this.getFullNameById(app.personID)} on>
                           <p className="blackFont">
-                            Sceduled meeting at {app.time} with {app.id}
+                            Scheduled meeting at {app.time} with {this.state.personName}
                           </p>
                         </div>
                         :null
                       )
                       :
                       <p className="blackFont">
-                        There are no meetings scheduled for this day
+                        There are no meetings scheduled for this day.
                       </p>
                       
                     }
@@ -68,13 +74,8 @@ class calendar extends Component{
               </tr>
             </tbody>
         </table>
-       
-          
         </div>
-     
-      
       </div>
-
     )
   }
 }

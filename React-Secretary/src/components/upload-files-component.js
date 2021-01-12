@@ -1,5 +1,5 @@
 import React, { Component, useState } from "react";
-import UploadService from "../services/upload-files.service";
+import UploadService from "../logic/upload-files.service";
 
 
 export default class UploadFiles extends Component {

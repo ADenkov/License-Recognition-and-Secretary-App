@@ -8,7 +8,6 @@ import com.secretary.secretaryapp.model.Client;
 import com.secretary.secretaryapp.model.FileInfo;
 import com.secretary.secretaryapp.repository.ClientRepository;
 import com.secretary.secretaryapp.service.FilesStorageService;
-import com.sun.mail.iap.Argument;
 import com.video.recognition.Main;
 import com.video.recognition.Main_ffmpeg;
 import org.bytedeco.javacpp.*;

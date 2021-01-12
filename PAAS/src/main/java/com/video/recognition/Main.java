@@ -38,25 +38,25 @@ public class Main {
                 record.set(1, "true");
                // System.out.println(record.get(1));
                // record.get(1).replace("false", "true");
-                updateCSV(records);
+                //updateCSV(records);
                 return Integer.parseInt(record.get(0));
             }
         }
         return -1;
     }
 
-    private static void updateCSV(List<List<String>> records) throws IOException {
-        File inputFile = new File("ParkingSpotsOccupation.csv");
-
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(inputFile));
-        bufferedWriter.write("");
-        for (List<String> record:records
-        ) {
-            bufferedWriter.append(record.get(0)).append(",").append(record.get(1)).append(",");
-            bufferedWriter.newLine();
-        }
-        bufferedWriter.close();
-    }
+//    private static void updateCSV(List<List<String>> records) throws IOException {
+//        File inputFile = new File("ParkingSpotsOccupation.csv");
+//
+//        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(inputFile));
+//        bufferedWriter.write("");
+//        for (List<String> record:records
+//        ) {
+//            bufferedWriter.append(record.get(0)).append(",").append(record.get(1)).append(",");
+//            bufferedWriter.newLine();
+//        }
+//        bufferedWriter.close();
+//    }
 
     private static List<String> getRecordFromLine(String line) {
         List<String> values = new ArrayList<String>();
