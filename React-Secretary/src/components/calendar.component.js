@@ -11,9 +11,15 @@ class calendarComponent extends Component{
     appointments:undefined,
     personName:""
   }
+  componentDidUpdate(prevState,prevProps){
+    if(prevState != this.state || prevProps != this.props){
+       prevState = this.state 
+    }
+
+  }
+
 
   handleChange =(date)=>{
-    
     var newDate = moment(date).format("DD-MM-YYYY")
     console.log(newDate);
     this.setState({
@@ -28,18 +34,27 @@ class calendarComponent extends Component{
       this.setState({
         appointments:appointments
       })
+      console.log(this.props);
     })
+    this.forceUpdate();
+    
   }
-  getFullNameById(id){
-  ClientDataService.getClient(id).then(response => {
-    console.log(response.data.firstName + " " + response.data.lastName);
-    this.state.personName = response.data.firstName + " " + response.data.lastName;
-  }).catch(e => {
-    console.log(e);
-  });
-  }
+  // getFullNameById =(id) =>{
+
+  //  ClientDataService.getClient(id).then(response => {
+  //   console.log(response.data.firstName + " " + response.data.lastName);
+  //     this.setState({
+  //       personName: response.data.firstName + " " + response.data.lastName
+  //     })
+      
+  // }).catch(e => {
+  //   console.log(e);
+  // });
+  
+  // }
 
   render(){
+
 
     return(
       <div>
@@ -51,17 +66,20 @@ class calendarComponent extends Component{
                   <Calendar onChange={this.handleChange}/>
                 </td>
                 <td>
+                  
                   <section>
                     {
-                      this.state.appointments ?
+                      this.state.appointments && this.state.appointments.length>0 ?
                       this.state.appointments.map(app =>
                         app ?
-                        <div onLoad={this.getFullNameById(app.personID)} on>
+                        <div key={app.id} >
+
                           <p className="blackFont">
-                            Scheduled meeting at {app.time} with {this.state.personName}
+                            Scheduled meeting on {app.date} at {app.time} with {app.personName} 
                           </p>
                         </div>
-                        :null
+                        :
+                        null
                       )
                       :
                       <p className="blackFont">

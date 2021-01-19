@@ -20,6 +20,9 @@ public class Appointment {
     @Column(name = "time")
     private String time;
 
+    @Column(name = "personName")
+    private String personName;
+
 
 
     public Appointment( @JsonProperty("personID") long personID,@JsonProperty("date") String date,@JsonProperty("time") String time){
@@ -64,4 +67,11 @@ public class Appointment {
         return time;
     }
 
+    public void setPersonName(String personName) {
+        this.personName = personName;
+    }
+
+    public String getPersonName() {
+        return personName;
+    }
 }
