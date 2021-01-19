@@ -85,7 +85,7 @@ class TableComponent extends React.Component{
                 </center>
                 </td>
                 <td className="tableCol"><center>
-                    <Link className="btn btn-warning" style={{color:"#FFFFFF"}} to={"/updateClient/" + client.id} role="button">
+                    <Link style={{color:"#FFFFFF"}} to={"/updateClient/" + client.id} className="btn btn-warning" role="button">
                         Update
                     </Link></center>
                 </td>
