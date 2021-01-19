@@ -59,7 +59,7 @@ export default class Update extends Component{
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.getClient = this.getClient.bind(this);
-    this.updateClient = this.updateClient.bind(this);
+    this.handleUpdate = this.handleUpdate.bind(this);
     this.state = {
         currentClient:
             {
@@ -106,43 +106,64 @@ export default class Update extends Component{
                 [tid]: val
             }
         }));
-        console.log(val + " " + tid)
     }
 
-    updateClient = () =>{
-        if(this.state.currentClient.firstName != "" || this.state.currentClient.lastName != "" || this.state.currentClient.licencePlate !="" || this.state.currentClient.phoneNumber.length == 9)
-        {ClientDataService.updateClient(
-            this.state.currentClient.id,
-            this.state.currentClient
-        )
-            .then(response => {
-                console.log(response.data);
-                this.setState({
-                    alert: "The client was updated successfully!"
+    handleUpdate(e) {
+        e.preventDefault();
+
+        this.setState({
+            message: "",
+            successful: false
+        });
+
+        this.form.validateAll();
+
+        if (this.checkBtn.context._errors.length === 0) {
+            ClientDataService.updateClient(
+                this.state.currentClient.id,
+                this.state.currentClient
+            )
+                .then(response => {
+                    this.setState({
+                        currentClient: {
+                            firstName: response.data.firstName,
+                            lastName: response.data.lastName,
+                            email: response.data.email,
+                            licensePlate: response.data.licensePlate,
+                            phoneNumber: response.data.phoneNumber
+                        },
+                        message: response.data.message,
+                        successful: true
+                    });
+
+                    console.log(response.data);
+                })
+                .then(() => {
+                    this.props.history.push('/clients')
+                })
+                .catch(error => {
+                    const resMessage =
+                        (error.response &&
+                            error.response.data &&
+                            error.response.data.message) ||
+                        error.message ||
+                        error.toString();
+
+                    this.setState({
+                        successful: false,
+                        message: resMessage
+                    });
                 });
-            })
-            .then(()=>{
-                this.props.history.push('/clients')
-            })
-            .catch(e => {
-                console.log(e);
-            });
         }
-        else{
-            alert("The input you gave is inorrect")
-        }
-            
     }
-
     render() {
-        let { currentClient } = this.state;
         return(
             <div className="container" style={{width:"60vw", color:"#6aa5b3"}}>
-                <h1 id={"title"}>Register Client</h1>
+                <h1 id={"title"}>Update Client</h1>
                 <hr style={{ backgroundColor: "#6aa5b3" }} />
 
                 <Form
-                    onSubmit={this.handleRegister}
+                    onSubmit={this.handleUpdate}
                     ref={c => {
                         this.form = c;
                     }}
@@ -214,7 +235,7 @@ export default class Update extends Component{
                             </div>
 
                             <div className="form-group">
-                                <button className="btn btn-info" style={{ backgroundColor: "#ff6a00", border:"none" }}>Register Client</button>
+                                <button className="btn btn-info" style={{ backgroundColor: "#ff6a00", border:"none" }}>Update Client</button>
                             </div>
                         </div>
                     )}

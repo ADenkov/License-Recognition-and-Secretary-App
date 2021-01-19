@@ -78,16 +78,16 @@ class TableComponent extends React.Component{
                 <td className="tableCol">{ client.licensePlate}</td>
                 <td className="tableCol">{ client.email }</td>
                 <td className="tableCol">{ client.phoneNumber }</td>
-                <td className="tableCol"><center><button className="btn btn-info">
-                    <Link style={{color:"#FFFFFF"}} to={"/createAppointment/" + client.id} >
+                <td className="tableCol"><center>
+                    <Link className="btn btn-info" style={{color:"#FFFFFF"}} to={"/createAppointment/" + client.id} role="button">
                         Make Appointment
                     </Link>
-                </button></center>
+                </center>
                 </td>
-                <td className="tableCol"><center><button className="btn btn-warning">
-                    <Link style={{color:"#FFFFFF"}} to={"/updateClient/" + client.id} >
+                <td className="tableCol"><center>
+                    <Link className="btn btn-warning" style={{color:"#FFFFFF"}} to={"/updateClient/" + client.id} role="button">
                         Update
-                    </Link></button></center>
+                    </Link></center>
                 </td>
                 <td className="tableCol"><center><button onClick={() => this.deleteClient(client.id)} className="btn btn-danger">Delete</button></center></td>
             </tr>
@@ -100,4 +100,4 @@ class TableComponent extends React.Component{
   }
 }
 
-export default TableComponent
+export default TableComponent;
