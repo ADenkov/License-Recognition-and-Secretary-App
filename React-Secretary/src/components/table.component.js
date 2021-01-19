@@ -1,5 +1,5 @@
 import React from 'react';
-import ClientDataService from "../logic/ClientDataService";
+import ClientDataService from "../logic/client.service";
 import { Link } from "react-router-dom";
 import { Table } from 'react-bootstrap';
 
@@ -63,9 +63,9 @@ class TableComponent extends React.Component{
           <th className="tableHeader">License Plate</th>
           <th className="tableHeader">Email</th>
           <th className="tableHeader">Phone Number</th>
-          <th className="tableHeader"></th>
-          <th className="tableHeader"></th>
-          <th className="tableHeader"></th>
+          <th className="tableHeader"/>
+          <th className="tableHeader"/>
+          <th className="tableHeader"/>
 
         </tr>
       </thead>
@@ -92,7 +92,7 @@ class TableComponent extends React.Component{
                 <td className="tableCol"><center><button onClick={() => this.deleteClient(client.id)} className="btn btn-danger">Delete</button></center></td>
             </tr>
           )
-         }) : <tr><td colSpan="5">Loading...</td></tr> }
+         }) : <tr><td colSpan="5">There are no clients in the database</td></tr> }
       </tbody>
     </table>
     </center>

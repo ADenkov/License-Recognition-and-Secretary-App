@@ -79,19 +79,19 @@ class FileControllerTest {
         String fileName = file.getOriginalFilename();
         assertEquals("eu-clip.mp4", fileName);
     }
-    @Test
-    void uploadFile(){
-        storageService.save(files.get(0));
-        String licensePlate = LicenseReader.licenseReader("uploads/" + files.get(0).getOriginalFilename());
-        Client client = clientRepository.findByLicensePlate("1234");
-        assertEquals("",client.getFirstName());
-    }
+//    @Test
+//    void uploadFile(){
+//        storageService.save(files.get(0));
+//        String licensePlate = LicenseReader.licenseReader("uploads/" + files.get(0).getOriginalFilename());
+//        Client client = clientRepository.findByLicensePlate("1234");
+//        assertEquals("",client.getFirstName());
+//    }
 
-    @Test
-    void getListFiles(){
-    }
-
-    @Test
-    void getFile() {
-    }
+//    @Test
+//    void getListFiles(){
+//    }
+//
+//    @Test
+//    void getFile() {
+//    }
 }

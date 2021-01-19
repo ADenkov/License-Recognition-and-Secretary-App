@@ -1,0 +1,229 @@
+.App {
+  text-align: center;
+}
+
+.tableClients {
+  margin-top: 5%;
+  width:60%;
+  background-color: #45838d;
+}
+
+.tableHeader{
+  color: black;
+  font-weight: normal;
+  font-size: 18px;
+  background-color: rgb(62, 68, 74);
+}
+
+/* td{
+  background-color: rgb(141, 141, 141);
+  border: whitesmoke solid 1.5px;
+  color: black;
+  font-weight: normal;
+  font-size: 18px;
+
+} */
+
+.zui-table {
+  margin-top: 35px;
+  border: solid 1px #DDEEEE;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font: normal 16px Arial, sans-serif;
+}
+.zui-table thead th {
+  background-color: #DDEFEF;
+  border: solid 1px #DDEEEE;
+  color: #336B6B;
+  padding: 10px;
+  text-align: left;
+}
+.zui-table tbody td {
+  border: solid 1px #DDEEEE;
+  color:  whitesmoke;
+  padding: 10px;
+}
+.zui-table-rounded {
+  border: none;
+}
+.zui-table-rounded thead th {
+  background-color: rgb(62, 68, 74);
+  border: none;
+  color: rgb(218,213,213);
+}
+.zui-table-rounded thead th:first-child {
+  border-radius: 10px 0 0 0;
+}
+.zui-table-rounded thead th:last-child {
+  border-radius: 0 10px 0 0;
+}
+.zui-table-rounded tbody td {
+  border: none;
+  border-top: solid 1px rgb(62, 68, 74);;
+  background-color: rgba(62, 68, 74, 0.815);;
+}
+.zui-table-rounded tbody tr:last-child td:first-child {
+  border-radius: 0 0 0 10px;
+}
+.zui-table-rounded tbody tr:last-child td:last-child {
+  border-radius: 0 0 10px 0;
+  padding-right: -100px;
+}
+
+.App {
+  background-color: #FFF;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+  font-size: calc(5px + 2vmin);
+  color: white;
+}
+
+
+hr { 
+  background-color: white;
+  border-width: 3px;
+  width: 100%;
+} 
+.btn.btn-info.crud{
+  margin-top: 22.5%;
+  margin-right: 2%;
+  margin-left: 2%;
+  font-size: 30px;
+  padding: 20px 40px;
+  background-color: rgba(80, 78, 78, 0.993);
+  border: none;
+}
+
+.btn.btn-success{
+  color: white;
+}
+
+
+img{
+  width: 200px;
+  height: 200px;
+  margin-bottom: 3%;
+  margin-top: 2.5%;
+}
+
+.form-group.text-left{
+margin-bottom: 7%;
+width: 400px;
+}
+
+.form-control{
+font-size: 50px;
+}
+
+span.h3 {
+  text-align: left;
+  margin-top: 2%;
+  font-size: xx-large;
+}
+
+h1{
+  margin-left: 5%;
+  padding: 1%;
+
+}
+
+/* table */
+
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 70%;
+  margin-left: 16%;
+  margin-top: 6.5%;
+  position: center;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  
+}
+
+
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #2d80d2;
+  color: white;
+}
+
+
+.imglogo{
+  width: 100px;
+  height: 40px;
+}
+
+
+.nav-item{
+ margin-left: 100px;
+}
+
+.nav-link:hover{
+  border-top: #ff6a00 solid 3px;
+}
+/*.nav-bar{*/
+/*  box-shadow: 0 1px 1px rgba(0,0,0,.2), 0 1px 1px rgba(0,0,0,.4);*/
+/*}*/
+#title{
+  color: #ff6a00;
+}
+
+.avatar-pic {
+  width: 150px;
+}
+.createAppointmentHello{
+  color: rgb(17, 14, 14);
+
+}
+.createAppointmentDivforInput{
+  align-items: center;
+  justify-content: center;
+  padding: 2%;
+}
+.labelAppointment{
+  padding: 2%;
+}
+.margin3{
+  margin: 3%;
+}
+.centerTable{
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.divButtonAppointment{
+  padding: 4px;
+  margin: 3%;
+  justify-content:right;
+  align-items:flex-end;
+  align-self:flex-end;
+  
+
+}
+.buttonAppointment{
+  align-content:flex-end;
+  justify-content:right;
+  align-items:flex-end;
+}
+.right{
+  align-content: right;
+}
+.center{
+  padding: 4%;
+  align-items: center;
+  justify-content: center;
+}
+.blackFont{
+  width: 100%;
+  color: #336B6B;
+  padding: 5%;
+}

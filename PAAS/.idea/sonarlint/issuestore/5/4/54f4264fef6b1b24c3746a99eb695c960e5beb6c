@@ -1,53 +1,53 @@
 
+9
+java:S1659Š""Declare "ret2" on a separate line.(Ì·š¯
+7
+java:S1659Š" Declare "fi" on a separate line.(Ì·š¯
 \
 java:S2095;"FUse try-with-resources or close this "AVPacket" in a "finally" clause.(ˆ€°ô
-f	java:S1178"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›Ñ‰Œ
-4
-java:S16597"Declare "i" on a separate line.(éîÊZ
-h
-java:S3457"Q%n should be used in place of \n to produce the platform-specific line separator.(ŠıØ
+g
+java:S3457S"Q%n should be used in place of \n to produce the platform-specific line separator.(Â›ÉĞ
+N	java:S106b"9Replace this use of System.out or System.err by a logger.(¡œÎÏ
 Q
 java:S1141¥"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
-?
-java:S16597"*Declare "v_stream_idx" on a separate line.(éîÊZ
-j
-java:S4042¨"NUse "java.nio.file.Files#delete" here for better messages on error conditions.(é‘‚©úÿÿÿÿ
-T	java:S106Ä"9Replace this use of System.out or System.err by a logger.(‹õ±ÿÿÿÿÿ
+S	java:S1065"9Replace this use of System.out or System.err by a logger.(è¨Ø³øÿÿÿÿ
 k	java:S117s"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÆŒÍ¼üÿÿÿÿ
-Q	java:S125?"<This block of commented-out lines of code should be removed.(İ¿Ñ˜
-g
-java:S37761"RRefactor this method to reduce its Cognitive Complexity from 42 to the 15 allowed.(¼¦Ê
-N	java:S106S"9Replace this use of System.out or System.err by a logger.(Â›ÉĞ
-P	java:S125]"<This block of commented-out lines of code should be removed.(öü³
 f	java:S117:"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(èÆì½
 f	java:S117X"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÖÇŸ
-T	java:S106£"9Replace this use of System.out or System.err by a logger.(Ï¾ì¦ùÿÿÿÿ
-O	java:S106"9Replace this use of System.out or System.err by a logger.(ŠıØ
+P	java:S125P"<This block of commented-out lines of code should be removed.(ö¤«:
+N	java:S106S"9Replace this use of System.out or System.err by a logger.(Â›ÉĞ
+T	java:S106Ó"9Replace this use of System.out or System.err by a logger.(œ»è»ÿÿÿÿÿ
+g
+java:S37761"RRefactor this method to reduce its Cognitive Complexity from 42 to the 15 allowed.(¼¦Ê
+Q	java:S125?"<This block of commented-out lines of code should be removed.(İ¿Ñ˜
+4
+java:S16597"Declare "i" on a separate line.(éîÊZ
 i
 java:S1192¦"MDefine a constant instead of duplicating this literal "frame%d_.ppm" 3 times.(ùúßúÿÿÿÿ
-V	java:S899¨";Do something with the "boolean" value returned by "delete".(é‘‚©úÿÿÿÿ
-O	java:S106·"9Replace this use of System.out or System.err by a logger.(Ô™¡û
-T	java:S106Ó"9Replace this use of System.out or System.err by a logger.(œ»è»ÿÿÿÿÿ
-j
-java:S4042Ã"NUse "java.nio.file.Files#delete" here for better messages on error conditions.(é‘‚©úÿÿÿÿ
+h
+java:S3457"Q%n should be used in place of \n to produce the platform-specific line separator.(ŠıØ
+O	java:S106"9Replace this use of System.out or System.err by a logger.(ŠıØ
+Q
+java:S1141©"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
 >
 java:S1481Š"'Remove this unused "fi" local variable.(Ì·š¯
 Q
 java:S1141®"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
-Q
-java:S1141©"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
+P	java:S125]"<This block of commented-out lines of code should be removed.(öü³
+e	java:S1177"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éîÊZ
+V	java:S899¨";Do something with the "boolean" value returned by "delete".(é‘‚©úÿÿÿÿ
+T	java:S106Ä"9Replace this use of System.out or System.err by a logger.(‹õ±ÿÿÿÿÿ
+f	java:S1178"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›Ñ‰Œ
+O	java:S106­"9Replace this use of System.out or System.err by a logger.(ÿåÚ˜
+W	java:S125"<This block of commented-out lines of code should be removed.(à ¦¡şÿÿÿÿ
 E
 java:S1121–".Extract the assignment out of this expression.(ØÊİ
-P	java:S125P"<This block of commented-out lines of code should be removed.(ö¤«:
-7
-java:S1659Š" Declare "fi" on a separate line.(Ì·š¯
-e	java:S1177"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éîÊZ
-g
-java:S3457S"Q%n should be used in place of \n to produce the platform-specific line separator.(Â›ÉĞ
-W	java:S125"<This block of commented-out lines of code should be removed.(à ¦¡şÿÿÿÿ
+O	java:S106·"9Replace this use of System.out or System.err by a logger.(Ô™¡û
+j
+java:S4042Ã"NUse "java.nio.file.Files#delete" here for better messages on error conditions.(é‘‚©úÿÿÿÿ
 V	java:S899Ã";Do something with the "boolean" value returned by "delete".(é‘‚©úÿÿÿÿ
-9
-java:S1659Š""Declare "ret2" on a separate line.(Ì·š¯
-O	java:S106­"9Replace this use of System.out or System.err by a logger.(ÿåÚ˜
-N	java:S106b"9Replace this use of System.out or System.err by a logger.(¡œÎÏ
-S	java:S1065"9Replace this use of System.out or System.err by a logger.(è¨Ø³øÿÿÿÿ
+T	java:S106£"9Replace this use of System.out or System.err by a logger.(Ï¾ì¦ùÿÿÿÿ
+?
+java:S16597"*Declare "v_stream_idx" on a separate line.(éîÊZ
+j
+java:S4042¨"NUse "java.nio.file.Files#delete" here for better messages on error conditions.(é‘‚©úÿÿÿÿ

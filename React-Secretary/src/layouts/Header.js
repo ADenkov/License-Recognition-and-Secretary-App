@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import {Link} from "react-router-dom";
-import UploadFiles from "../components/upload-files-component"
 
  class Header extends Component {
     render() {
@@ -36,14 +35,14 @@ import UploadFiles from "../components/upload-files-component"
                         </ul>
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <Link id="uploadImage"to={"/uploadImage"} className="nav-link">
+                                <Link id="uploadImage" to={"/uploadImage"} className="nav-link">
                                 Upload
                                 </Link>
                             </li>
                         </ul>
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <Link to={"/calendar"} className="nav-link">
+                                <Link to={"/calendarComponent"} className="nav-link">
                                 Calendar
                                 </Link>
                             </li>

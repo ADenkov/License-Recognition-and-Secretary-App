@@ -1,0 +1,5 @@
+{
+    "baseUrl": "https://localhost:3000/registerClient",
+    "video": false,
+    "taskTimeout": 300000
+}

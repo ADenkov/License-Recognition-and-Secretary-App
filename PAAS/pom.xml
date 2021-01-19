@@ -1,58 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.3.4.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath />
+        <!-- lookup parent from repository -->
     </parent>
     <groupId>com.secretary</groupId>
     <artifactId>secretary-app</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>secretary-app</name>
     <description>Secretary Web Application developed for Sioux</description>
-
     <properties>
         <java.version>1.8</java.version>
+        <frontend-src-dir>${project.basedir}/src/main/app</frontend-src-dir>
+        <node.version>v14.4.0</node.version>
+        <npm.version>6.14.8</npm.version>
+        <frontend-maven-plugin.version>1.7.6</frontend-maven-plugin.version>
     </properties>
-
     <dependencies>
         <dependency>
             <groupId>com.opencsv</groupId>
             <artifactId>opencsv</artifactId>
             <version>5.3</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.openalpr.jni</groupId>-->
-<!--            <artifactId>openalprjni</artifactId>-->
-<!--            <version>1.0</version>-->
-<!--        </dependency>-->
+        <!-- <dependency>-->
+        <!-- <groupId>com.openalpr.jni</groupId>-->
+        <!-- <artifactId>openalprjni</artifactId>-->
+        <!-- <version>1.11.0</version>-->
+        <!-- </dependency>-->
+        <!-- ZAKOMENTIRANO to`no tuk da si znaete murshi semestura vi svurshiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii-->
         <dependency>
             <groupId>nu.pattern</groupId>
             <artifactId>opencv</artifactId>
             <version>2.4.9-7</version>
         </dependency>
-
-<!--        <dependency>-->
-<!--            <groupId>org.bytedeco</groupId>-->
-<!--            <artifactId>javacpp</artifactId>-->
-<!--            <version>1.5.4</version>-->
-<!--        </dependency>-->
-
-<!--        <dependency>-->
-<!--            <groupId>org.bytedeco.javacpp-presets</groupId>-->
-<!--            <artifactId>ffmpeg</artifactId>-->
-<!--            <version>3.0.2-1.2</version>-->
-<!--        </dependency>-->
+        <!-- <dependency>-->
+        <!-- <groupId>org.bytedeco</groupId>-->
+        <!-- <artifactId>javacpp</artifactId>-->
+        <!-- <version>1.5.4</version>-->
+        <!-- </dependency>-->
+        <!-- <dependency>-->
+        <!-- <groupId>org.bytedeco.javacpp-presets</groupId>-->
+        <!-- <artifactId>ffmpeg</artifactId>-->
+        <!-- <version>3.0.2-1.2</version>-->
+        <!-- </dependency>-->
         <dependency>
             <groupId>org.bytedeco.javacpp-presets</groupId>
             <artifactId>ffmpeg</artifactId>
             <version>4.1-1.4.4</version>
             <classifier>windows-x86_64</classifier>
         </dependency>
-
         <dependency>
             <groupId>org.bytedeco.javacpp-presets</groupId>
             <artifactId>ffmpeg</artifactId>
@@ -64,7 +64,6 @@
             <artifactId>ffmpeg</artifactId>
             <version>4.3.1-1.5.4</version>
         </dependency>
-
         <dependency>
             <groupId>org.bytedeco</groupId>
             <artifactId>javacv</artifactId>
@@ -88,18 +87,15 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
-
-        <!--        <dependency>-->
-        <!--            <groupId>org.junit.jupiter</groupId>-->
-        <!--            <artifactId>junit-jupiter-engine</artifactId>-->
-        <!--            <version>5.5.2</version>-->
-        <!--        </dependency>-->
-
+        <!-- <dependency>-->
+        <!-- <groupId>org.junit.jupiter</groupId>-->
+        <!-- <artifactId>junit-jupiter-engine</artifactId>-->
+        <!-- <version>5.5.2</version>-->
+        <!-- </dependency>-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -114,12 +110,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-            <!--            <exclusions>-->
-            <!--                <exclusion>-->
-            <!--                    <groupId>org.junit.vintage</groupId>-->
-            <!--                    <artifactId>junit-vintage-engine</artifactId>-->
-            <!--                </exclusion>-->
-            <!--            </exclusions>-->
+            <!-- <exclusions>-->
+            <!-- <exclusion>-->
+            <!-- <groupId>org.junit.vintage</groupId>-->
+            <!-- <artifactId>junit-vintage-engine</artifactId>-->
+            <!-- </exclusion>-->
+            <!-- </exclusions>-->
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -144,14 +140,72 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+                <version>${frontend-maven-plugin.version}</version>
+                <configuration>
+                    <nodeVersion>${node.version}</nodeVersion>
+                    <npmVersion>${npm.version}</npmVersion>
+                    <workingDirectory>${frontend-src-dir}</workingDirectory>
+                    <installDirectory>${project.build.directory}</installDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>install-frontend-tools</id>
+                        <goals>
+                            <goal>install-node-and-npm</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>npm install</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>install</arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>build-frontend</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <phase>prepare-package</phase>
+                        <configuration>
+                            <arguments>run build</arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>position-react-build</id>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <phase>prepare-package</phase>
+                        <configuration>
+                            <outputDirectory>${project.build.outputDirectory}/static</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${frontend-src-dir}/build</directory>
+                                    <filtering>false</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
-
 </project>

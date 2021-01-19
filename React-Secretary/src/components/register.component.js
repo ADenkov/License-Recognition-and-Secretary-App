@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import ClientDataService from "../logic/ClientDataService";
-import { Link } from "react-router-dom";
-import Form from 'react-validation/build/form';
-import Input from 'react-validation/build/input';
-import validator from 'validator';
+import Form from "react-validation/build/form";
+import Input from "react-validation/build/input";
+import CheckButton from "react-validation/build/button";
+import validator from "validator";
+import ClientDataService from "../logic/client.service";
 
 const required = value => {
     if (!value) {
@@ -17,43 +17,48 @@ const required = value => {
 
 const email = (value) => {
     if (!validator.isEmail(value)) {
-        return `${value} is not a valid email.`
+        return(
+            <div className="alert alert-danger" role="alert">
+            {value} is not a valid email.
+            </div>
+        );
     }
 };
 
 const vname = value => {
-    if (value.length < 3 || value.length > 20) {
+    if (value.length < 1 || value.length > 20) {
         return (
             <div className="alert alert-danger" role="alert">
-                The name must be between 3 and 20 characters.
+                The name must be between 1 and 20 characters.
             </div>
         );
     }
 };
 const vplate = value => {
-    if (value.length < 3 || value.length > 8) {
+    if (value.length < 3 || value.length > 8 || value.includes('-') || value.includes(' ')) {
         return (
             <div className="alert alert-danger" role="alert">
-                The license plate must be between 3 and 8 characters.
+                The license plate must be between 3 and 8 characters and not contain dashes and whitespace.
             </div>
         );
     }
 };
 const vPhoneNumber = value => {
-    if (value.length < 6 || value.length > 40) {
+    if (value.length < 10 || value.length > 15) {
         return (
             <div className="alert alert-danger" role="alert">
-                The password must be between 6 and 40 characters.
+                The phone number must be between 10 and 15 characters.
             </div>
         );
     }
 };
 
-class Register extends Component {
+export default class Register extends Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
-        this.addClient = this.addClient.bind(this);
+        this.handleRegister = this.handleRegister.bind(this);
+
         this.state = {
             currentClient: {
                 firstName: "",
@@ -62,29 +67,41 @@ class Register extends Component {
                 licensePlate: "",
                 phoneNumber: ""
             },
+            successful:false,
             message: ""
         };
     }
-
     handleChange = (e) => {
-            this.setState(prevState => ({
-                currentClient: {
-                    ...prevState.currentClient,
-                    [e.target.id]: e.target.value
-                }
-            }));
+        console.log(e.target.id + ' ' + e.target.value)
+        this.setState(prevState => ({
+            currentClient: {
+                ...prevState.currentClient,
+                [e.target.id]: e.target.value
+            }
+        }));
     }
 
-    addClient = () => {
-        const data = {
-            firstName: this.state.currentClient.firstName,
-            lastName: this.state.currentClient.lastName,
-            email: this.state.currentClient.email,
-            licensePlate: this.state.currentClient.licensePlate,
-            phoneNumber: this.state.currentClient.phoneNumber
-        };
+    handleRegister(e) {
+        e.preventDefault();
 
-        if (this.state.currentClient.firstName !== undefined && this.state.currentClient.lastName !== undefined && this.state.currentClient.email !== undefined && this.state.currentClient.licensePlate !== undefined && this.state.currentClient.phoneNumber !== undefined) {
+        this.setState({
+            message: "",
+            successful: false
+        });
+
+        this.form.validateAll();
+
+        if (this.checkBtn.context._errors.length === 0) {
+            const data = {
+                firstName: this.state.currentClient.firstName,
+                lastName: this.state.currentClient.lastName,
+                email: this.state.currentClient.email,
+                licensePlate: this.state.currentClient.licensePlate,
+                phoneNumber: this.state.currentClient.phoneNumber
+            };
+
+            console.log(this.state)
+            console.log(data);
             ClientDataService.postClient(data)
                 .then(response => {
                     this.setState({
@@ -95,8 +112,8 @@ class Register extends Component {
                             licensePlate: response.data.licensePlate,
                             phoneNumber: response.data.phoneNumber
                         },
-                        message: "Client Added!"
-
+                        message: response.data.message,
+                        successful: true
                     });
 
                     console.log(response.data);
@@ -105,61 +122,128 @@ class Register extends Component {
                     this.props.history.push('/clients')
                 })
 
-                .catch(e => {
-                    console.log(e);
+                .catch(error => {
+                    const resMessage =
+                        (error.response &&
+                            error.response.data &&
+                            error.response.data.message) ||
+                        error.message ||
+                        error.toString();
+
+                    this.setState({
+                        successful: false,
+                        message: resMessage
+                    });
                 });
-        }
-        else {
-            alert("there is an invalid data input")
         }
     }
 
     render() {
         return (
-            <div>
-                <span className="h3">
-                    <h1 id={"title"}>Register Client</h1>
-                    <hr style={{ backgroundColor: "#6aa5b3" }} />
-                    <br />
-                    <center>
-                        <div className="col-12 col-lg-4 mt-2 hv-center">
-                            <Form>
-                                <div className="form-group text-left">
-                                    <Input
-                                        onChange={this.handleChange}
-                                        className="form-control"
-                                        id="firstName"
-                                        placeholder="First Name"
-                                        validations={[required, vname]}
-                                    />
-                                </div>
-                                <div className="form-group text-left">
-                                    <Input onChange={this.handleChange} className="form-control" id="lastName" placeholder="Last Name" validations={[required, vname]} />
-                                </div>
-                                <div className="form-group text-left">
-                                    <Input onChange={this.handleChange} className="form-control" id="licensePlate" placeholder="License Plate" validations={[required, vplate]} />
-                                </div>
-                                <div className="form-group text-left">
-                                    <Input onChange={this.handleChange} type="tel" className="form-control" id="phoneNumber" placeholder="Phone Number" validations={[required, vPhoneNumber]} />
-                                </div>
-                                <div className="form-group text-left">
-                                    <Input onChange={this.handleChange} type="email" className="form-control" id="email" placeholder="Email" validations={[required, email]} />
-                                </div>
+                    <div className="container" style={{width:"60vw", color:"#6aa5b3"}}>
+                        <h1 id={"title"}>Register Client</h1>
+                        <hr style={{ backgroundColor: "#6aa5b3" }} />
 
-                                <a onClick={this.addClient} className="btn btn-info" role="button" style={{ backgroundColor: "#ff6a00" }}>Register Client</a>
+                        <Form
+                            onSubmit={this.handleRegister}
+                            ref={c => {
+                                this.form = c;
+                            }}
+                        >
+                            {!this.state.successful && (
+                                <div>
+                                    <div className="form-group">
+                                        <span className="input-group-addon"><i className="fa fa-user">First Name</i></span>
+                                        <Input
+                                            type="text"
+                                            className="form-control"
+                                            name="firstName"
+                                            id="firstName"
+                                            value={this.state.currentClient.firstName}
+                                            onChange={this.handleChange}
+                                            validations={[required, vname]}
+                                        />
+                                    </div>
+                                    <div className="form-group">
+                                        <span className="input-group-addon"><i className="fa fa-user">Last Name</i></span>
+                                        <Input
+                                            type="text"
+                                            className="form-control"
+                                            name="lastName"
+                                            id="lastName"
+                                            value={this.state.currentClient.lastName}
+                                            onChange={this.handleChange}
+                                            validations={[required, vname]}
+                                        />
+                                    </div>
 
-                                <br />
-                            </Form>
-                        </div>
-                    </center>
-                </span>
-                <br />
-                <p>{this.state.message}</p>
-            </div>
-        )
+                                    <div className="form-group">
+                                        <span className="input-group-addon"><i className="fa fa-envelope">Email</i></span>
+                                        <Input
+                                            type="text"
+                                            className="form-control"
+                                            name="email"
+                                            id="email"
+                                            value={this.state.currentClient.email}
+                                            onChange={this.handleChange}
+                                            validations={[required, email]}
+                                        />
+                                    </div>
+
+                                    <div className="form-group">
+                                        <span className="input-group-addon"><i className="fa fa-home">License Plate (without dashes and/or whitespace)</i></span>
+                                        <Input
+                                            type="text"
+                                            className="form-control"
+                                            name="licensePlate"
+                                            id="licensePlate"
+                                            value={this.state.currentClient.licensePlate}
+                                            onChange={this.handleChange}
+                                            validations={[required, vplate]}
+                                        />
+                                    </div>
+
+                                    <div className="form-group">
+                                        <span className="input-group-addon"><i className="fa fa-phone">Phone number</i></span>
+                                        <Input
+                                            type="text"
+                                            className="form-control"
+                                            name="phoneNumber"
+                                            id="phoneNumber"
+                                            value={this.state.currentClient.phoneNumber}
+                                            onChange={this.handleChange}
+                                            validations={[required, vPhoneNumber]}
+                                        />
+                                    </div>
+
+                                    <div className="form-group">
+                                        <button className="btn btn-info" style={{ backgroundColor: "#ff6a00", border:"none" }}>Register Client</button>
+                                    </div>
+                                </div>
+                            )}
+
+                            {this.state.message && (
+                                <div className="form-group">
+                                    <div
+                                        className={
+                                            this.state.successful
+                                                ? "alert alert-success"
+                                                : "alert alert-danger"
+                                        }
+                                        role="alert"
+                                    >
+                                        {this.state.message}
+                                    </div>
+                                </div>
+                            )}
+                            <CheckButton
+                                style={{ display: "none" }}
+                                ref={c => {
+                                    this.checkBtn = c;
+                                }}
+                            />
+                        </Form>
+                    </div>
+        );
     }
-
-
 }
-export default Register;
-

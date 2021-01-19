@@ -1,0 +1,14 @@
+
+Q	java:S125"<This block of commented-out lines of code should be removed.(Û“¤
+c	java:S100)"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÈÀ•‰
+h	java:S100."NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚åñÂıÿÿÿÿ
+V	java:S125"<This block of commented-out lines of code should be removed.(Üóğòüÿÿÿÿ
+h	java:S100'"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ı¹Íüÿÿÿÿ
+Q	java:S125"<This block of commented-out lines of code should be removed.(Ñ…üù
+c	java:S100,"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦¹„ƒ
+c	java:S100+"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(û‚’¸
+b	java:S100-"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(é¾¬"
+h	java:S100("NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÜÂ‚ıÿÿÿÿ
+Q	java:S125"<This block of commented-out lines of code should be removed.(êì¬‘
+V	java:S125"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(âêœºøÿÿÿÿ

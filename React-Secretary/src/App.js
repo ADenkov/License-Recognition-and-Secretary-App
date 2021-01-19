@@ -5,9 +5,9 @@ import Header from "./layouts/Header"
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Table from "./components/table.component";
 import UpdateClient from "./components/update.component"
-import UploadImage from "./components/upload-files-component";
-import assignMeeting from "./components/assignMeeting";
-import calendar from './components/calendar'
+import UploadImage from "./components/upload-files.component";
+import assignMeetingComponent from "./components/assignMeeting.component";
+import calendarComponent from './components/calendar.component'
 
 class App extends React.Component {
 	constructor(props) {
@@ -26,8 +26,8 @@ class App extends React.Component {
 						<Route exact path="/updateClient/:id" component={UpdateClient} />
 						<Route exact path="/registerClient" component={RegisterClient} />
 						<Route exact path="/uploadImage" component={UploadImage} />
-						<Route exact path="/createAppointment/:id" component={assignMeeting}/>
-						<Route exact path="/calendar" component={calendar}/>
+						<Route exact path="/createAppointment/:id" component={assignMeetingComponent}/>
+						<Route exact path="/calendarComponent" component={calendarComponent}/>
 					</div>
 				</Router>
 			</div>

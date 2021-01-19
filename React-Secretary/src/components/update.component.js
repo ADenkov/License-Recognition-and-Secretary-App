@@ -1,6 +1,58 @@
 import React, {Component} from 'react';
-import ClientDataService from '../logic/ClientDataService';
+import ClientDataService from '../logic/client.service';
 import {BrowserRouter, Link, Redirect} from "react-router-dom";
+import Form from "react-validation/build/form";
+import Input from "react-validation/build/input";
+import CheckButton from "react-validation/build/button";
+import validator from "validator";
+
+const required = value => {
+    if (!value) {
+        return (
+            <div className="alert alert-danger" role="alert">
+                This field is required!
+            </div>
+        );
+    }
+};
+
+const email = (value) => {
+    if (!validator.isEmail(value)) {
+        return(
+            <div className="alert alert-danger" role="alert">
+                {value} is not a valid email.
+            </div>
+        );
+    }
+};
+
+const vname = value => {
+    if (value.length < 1 || value.length > 20) {
+        return (
+            <div className="alert alert-danger" role="alert">
+                The name must be between 1 and 20 characters.
+            </div>
+        );
+    }
+};
+const vplate = value => {
+    if (value.length < 3 || value.length > 8 || value.includes('-') || value.includes(' ')) {
+        return (
+            <div className="alert alert-danger" role="alert">
+                The license plate must be between 3 and 8 characters and not contain dashes and whitespace.
+            </div>
+        );
+    }
+};
+const vPhoneNumber = value => {
+    if (value.length < 10 || value.length > 15) {
+        return (
+            <div className="alert alert-danger" role="alert">
+                The phone number must be between 10 and 15 characters.
+            </div>
+        );
+    }
+};
 
 export default class Update extends Component{
   constructor(props){
@@ -85,77 +137,109 @@ export default class Update extends Component{
     render() {
         let { currentClient } = this.state;
         return(
-            <div>
-                <span className="h3">
-                <h1>Update Client</h1>
-                <hr/>
-                <br/>
-                <center>
-                    <div className="col-12 col-lg-4 mt-2 hv-center">
-                        <form>
-                            <div className="form-group text-left">
-                                <input
-                                    className="form-control"
+            <div className="container" style={{width:"60vw", color:"#6aa5b3"}}>
+                <h1 id={"title"}>Register Client</h1>
+                <hr style={{ backgroundColor: "#6aa5b3" }} />
+
+                <Form
+                    onSubmit={this.handleRegister}
+                    ref={c => {
+                        this.form = c;
+                    }}
+                >
+                    {!this.state.successful && (
+                        <div>
+                            <div className="form-group">
+                                <span className="input-group-addon"><i className="fa fa-user">First Name</i></span>
+                                <Input
                                     type="text"
-                                    placeholder="First Name"
+                                    className="form-control"
+                                    name="firstName"
                                     id="firstName"
-                                    value={currentClient.firstName}
-                                    onChange = {this.handleChange}
+                                    value={this.state.currentClient.firstName}
+                                    onChange={this.handleChange}
+                                    validations={[required, vname]}
                                 />
                             </div>
-                            <div className="form-group text-left">
-                                <input
-                                    className="form-control"
+                            <div className="form-group">
+                                <span className="input-group-addon"><i className="fa fa-user">Last Name</i></span>
+                                <Input
                                     type="text"
-                                    placeholder="Last Name"
+                                    className="form-control"
+                                    name="lastName"
                                     id="lastName"
-                                    value={currentClient.lastName}
-                                    onChange = {this.handleChange}
+                                    value={this.state.currentClient.lastName}
+                                    onChange={this.handleChange}
+                                    validations={[required, vname]}
                                 />
                             </div>
-                            <div className="form-group text-left">
-                                <input
-                                    className="form-control"
+
+                            <div className="form-group">
+                                <span className="input-group-addon"><i className="fa fa-envelope">Email</i></span>
+                                <Input
                                     type="text"
-                                    placeholder="License Plate"
-                                    id="licensePlate"
-                                    value={currentClient.licensePlate}
-                                    onChange = {this.handleChange}
-                                />
-                            </div>
-                            <div className="form-group text-left">
-                                <input
                                     className="form-control"
-                                    type="text"
-                                    placeholder="Phone Number"
-                                    id="phoneNumber"
-                                    value={currentClient.phoneNumber}
-                                    onChange = {this.handleChange}
-                                />
-                            </div>
-                            <div className="form-group text-left">
-                                <input
-                                    className="form-control"
-                                    type="text"
-                                    placeholder="Email"
+                                    name="email"
                                     id="email"
-                                    value={currentClient.email}
-                                    onChange = {this.handleChange}
+                                    value={this.state.currentClient.email}
+                                    onChange={this.handleChange}
+                                    validations={[required, email]}
                                 />
                             </div>
-                            
-                            <Link to={"/clients"} className="btn btn-danger"  >
-                                    Cancel
-                            </Link>
-                            <a onClick={this.updateClient} className="btn btn-warning" role="button" >
-                               Update Client 
-                            </a>
-                            <br/>
-                        </form>
-                    </div>
-                </center>{/*TODO center tag to div align center*/}
-                </span>
-                <p>{this.state.message}</p>
+
+                            <div className="form-group">
+                                <span className="input-group-addon"><i className="fa fa-home">License Plate (without dashes and/or whitespace)</i></span>
+                                <Input
+                                    type="text"
+                                    className="form-control"
+                                    name="licensePlate"
+                                    id="licensePlate"
+                                    value={this.state.currentClient.licensePlate}
+                                    onChange={this.handleChange}
+                                    validations={[required, vplate]}
+                                />
+                            </div>
+
+                            <div className="form-group">
+                                <span className="input-group-addon"><i className="fa fa-phone">Phone number</i></span>
+                                <Input
+                                    type="text"
+                                    className="form-control"
+                                    name="phoneNumber"
+                                    id="phoneNumber"
+                                    value={this.state.currentClient.phoneNumber}
+                                    onChange={this.handleChange}
+                                    validations={[required, vPhoneNumber]}
+                                />
+                            </div>
+
+                            <div className="form-group">
+                                <button className="btn btn-info" style={{ backgroundColor: "#ff6a00", border:"none" }}>Register Client</button>
+                            </div>
+                        </div>
+                    )}
+
+                    {this.state.message && (
+                        <div className="form-group">
+                            <div
+                                className={
+                                    this.state.successful
+                                        ? "alert alert-success"
+                                        : "alert alert-danger"
+                                }
+                                role="alert"
+                            >
+                                {this.state.message}
+                            </div>
+                        </div>
+                    )}
+                    <CheckButton
+                        style={{ display: "none" }}
+                        ref={c => {
+                            this.checkBtn = c;
+                        }}
+                    />
+                </Form>
             </div>
         )
     }

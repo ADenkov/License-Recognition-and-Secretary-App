@@ -15,7 +15,8 @@ public class Alpr {
 //            else if (bitness == 64) {
 //                opencvpath=opencvpath+"\\openalpr_dependencies\\";
 //            } else {
-                opencvpath=opencvpath+"\\openalpr_dependencies\\";
+                //opencvpath=opencvpath+"\\openalpr_dependencies\\";
+            opencvpath=opencvpath+"\\";
 //            }
         }
         else if(osName.equals("Mac OS X")){
