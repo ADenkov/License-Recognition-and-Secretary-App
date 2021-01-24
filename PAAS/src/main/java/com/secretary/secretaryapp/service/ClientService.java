@@ -1,12 +1,10 @@
 package com.secretary.secretaryapp.service;
 
-import com.secretary.secretaryapp.dao.ClientDao;
 import com.secretary.secretaryapp.model.Client;
 import com.secretary.secretaryapp.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,13 +38,4 @@ clientRepository.deleteAll();
     public Client save(Client client) {
         return clientRepository.save(client);
     }
-
-//
-//    public Collection<Client> getAllClients(){
-//        return  this.clientDao.getAllClients();
-//    }
-//    public  Client getClientById(int id){
-//        return this.clientDao.getClientById(id);
-//    }
-
 }

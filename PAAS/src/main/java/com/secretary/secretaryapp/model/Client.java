@@ -5,12 +5,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @Entity
-//        (name = "Clients")
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-//            (name = "client_id")
     private long id;
 
     @Column(name = "first_name")

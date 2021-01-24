@@ -26,27 +26,21 @@
             <artifactId>opencsv</artifactId>
             <version>5.3</version>
         </dependency>
-        <!-- <dependency>-->
-        <!-- <groupId>com.openalpr.jni</groupId>-->
-        <!-- <artifactId>openalprjni</artifactId>-->
-        <!-- <version>1.11.0</version>-->
-        <!-- </dependency>-->
-        <!-- ZAKOMENTIRANO to`no tuk da si znaete murshi semestura vi svurshiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii-->
-        <dependency>
+       <dependency>
             <groupId>nu.pattern</groupId>
             <artifactId>opencv</artifactId>
             <version>2.4.9-7</version>
         </dependency>
-        <!-- <dependency>-->
-        <!-- <groupId>org.bytedeco</groupId>-->
-        <!-- <artifactId>javacpp</artifactId>-->
-        <!-- <version>1.5.4</version>-->
-        <!-- </dependency>-->
-        <!-- <dependency>-->
-        <!-- <groupId>org.bytedeco.javacpp-presets</groupId>-->
-        <!-- <artifactId>ffmpeg</artifactId>-->
-        <!-- <version>3.0.2-1.2</version>-->
-        <!-- </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.bytedeco.javacpp-presets</groupId>-->
+<!--            <artifactId>opencv</artifactId>-->
+<!--            <version>2.4.11-0.11</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.openpnp</groupId>-->
+<!--            <artifactId>opencv</artifactId>-->
+<!--            <version>2.4.11-2</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.bytedeco.javacpp-presets</groupId>
             <artifactId>ffmpeg</artifactId>
@@ -77,7 +71,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-mail</artifactId>
-            <version>2.3.5.RELEASE</version>
+            <version>2.3.8.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

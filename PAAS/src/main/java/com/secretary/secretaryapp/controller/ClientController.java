@@ -1,10 +1,8 @@
 package com.secretary.secretaryapp.controller;
 
-
 import com.secretary.secretaryapp.email.EmailService;
 import com.secretary.secretaryapp.model.Appointment;
 import com.secretary.secretaryapp.model.Client;
-import com.secretary.secretaryapp.repository.ClientRepository;
 import com.secretary.secretaryapp.service.AppointmentService;
 import com.secretary.secretaryapp.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,15 +19,25 @@ import java.util.Optional;
 @RequestMapping("/clients")
 @CrossOrigin(origins = {"*", "*"})
 public class ClientController {
-@Autowired
-    private ClientService clientService;
-
     @Autowired
-    private EmailService emailService;
+    private ClientService clientService;
 
     @Autowired
     private AppointmentService appointmentService;
 
+    @Autowired
+    private EmailService emailService;
+
+    @PostMapping("/sendmail/{email}")
+    public ResponseEntity<HttpStatus> sendmail(@PathVariable("email") String email) {
+
+        try{
+            emailService.sendMail(email, "Parking Spot", "Your Parking spot is...");
+            return new ResponseEntity<>(HttpStatus.OK);
+        }catch(MailSendException s){
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 
     @GetMapping("/all")
     public @ResponseBody List<Client> getAllClients() {
@@ -91,16 +99,6 @@ public class ClientController {
         }
     }
 
-    @PostMapping("/sendmail/{email}")
-    public ResponseEntity<HttpStatus> sendmail(@PathVariable("email") String email) {
-
-        try{
-            emailService.sendMail(email, "Parking Spot", "Your Parking spot is...");
-            return new ResponseEntity<>(HttpStatus.OK);
-        }catch(MailSendException s){
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
     @PostMapping("/makeAppointment/{id}")
     public ResponseEntity<HttpStatus> makeAppointment(@PathVariable("id") long personID, @RequestBody Appointment appointment){
         try{
@@ -111,6 +109,7 @@ public class ClientController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
     @GetMapping("getAppointmentsForDate/{date}")
     public ResponseEntity<List<Appointment>> getAppointmentsForDate(@PathVariable String date){
         try{
@@ -120,6 +119,9 @@ public class ClientController {
         catch (Exception e){
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
+        }
+    @GetMapping("shutdown")
+    public void shutdown(){
+        System.exit(0);
     }
-
 }

@@ -1,0 +1,51 @@
+
+Z
+java:S2629¶"7Use the built-in formatting to construct this argument.(´Ñ¸âÿÿÿÿÿ8àßÁĞò.
+X
+java:S1141Â"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8àßÁĞò.
+[	java:S106µ"9Replace this use of System.out or System.err by a logger.(Ï¾ì¦ùÿÿÿÿ8àßÁĞò.
+X
+java:S1141½"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8àßÁĞò.
+@
+java:S1659œ""Declare "ret2" on a separate line.(Ì·š¯8àßÁĞò.
+m	java:S117M"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(èÆì½8àßÁĞò.
+
+java:S2629Š"\Invoke method(s) only conditionally. Use the built-in formatting to construct this argument.(˜Î·šúÿÿÿÿ8ı† Ñò.
+s	java:S117†"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÆŒÍ¼üÿÿÿÿ8àßÁĞò.
+;
+java:S1659I"Declare "i" on a separate line.(éîÊZ8àßÁĞò.
+n
+java:S1192R"LDefine a constant instead of duplicating this literal "Fatal Error" 4 times.(õşßüÿÿÿÿ8àßÁĞò.
+X	java:S125¦"<This block of commented-out lines of code should be removed.(èĞ8àßÁĞò.
+l	java:S117I"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éîÊZ8àßÁĞò.
+m	java:S117K"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(âÜóæ8àßÁĞò.
+X	java:S125Ò"<This block of commented-out lines of code should be removed.(³ÒÉ48ı† Ñò.
+X
+java:S1141º"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8àßÁĞò.
+r
+java:S1215ê"TDon't try to be smarter than the JVM, remove this call to run the garbage collector.(Ì°¬“8ı† Ñò.
+V	java:S106¼"9Replace this use of System.out or System.err by a logger.(€€ÄÂ8àßÁĞò.
+L
+java:S1121ª".Extract the assignment out of this expression.(ØÊİ8àßÁĞò.
+m	java:S117i"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÖÇŸ8àßÁĞò.
+o
+java:S3776A"RRefactor this method to reduce its Cognitive Complexity from 96 to the 15 allowed.(ÌÍŒ8àßÁĞò.
+V	java:S106¢"9Replace this use of System.out or System.err by a logger.(ŠıØ8àßÁĞò.
+Y	java:S125ë"<This block of commented-out lines of code should be removed.(Üë»õ8ı† Ñò.
+~
+java:S2629h"\Invoke method(s) only conditionally. Use the built-in formatting to construct this argument.(˜Î·šúÿÿÿÿ8àßÁĞò.
+E
+java:S1481œ"'Remove this unused "fi" local variable.(Ì·š¯8àßÁĞò.
+>
+java:S1659œ" Declare "fi" on a separate line.(Ì·š¯8àßÁĞò.
+F
+java:S1659I"*Declare "v_stream_idx" on a separate line.(éîÊZ8àßÁĞò.
+i
+java:S2142Ô"FEither re-interrupt this method or rethrow the "InterruptedException".(àÏƒùüÿÿÿÿ8êøñİò.
+h
+java:S2147Ğ"ECombine this catch with the one at line 334, which has the same body.(Ûöååùÿÿÿÿ8êøñİò.
+h
+java:S2147Ò"ECombine this catch with the one at line 334, which has the same body.(úîøÿÿÿÿ8êøñİò.
+X	java:S125Ï"<This block of commented-out lines of code should be removed.(³ÒÉ48êøñİò.
+^	java:S125Ñ"<This block of commented-out lines of code should be removed.(²áµ®øÿÿÿÿ8êøñİò.
+X	java:S125Ó"<This block of commented-out lines of code should be removed.(‡úßA8êøñİò.

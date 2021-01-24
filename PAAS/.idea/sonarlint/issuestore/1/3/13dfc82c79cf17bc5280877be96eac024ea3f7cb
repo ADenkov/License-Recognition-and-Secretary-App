@@ -1,0 +1,28 @@
+
+G
+java:S1172",Remove this unused method parameter "f_idx".(¶²ÉÅ8Ş¾§Ëò.
+s
+java:S1128"SRemove this unused import 'org.springframework.beans.factory.annotation.Autowired'.(¡¸Îùÿÿÿÿ8ôáŒËò.
+Y
+java:S1128"9Remove this unused import 'org.assertj.core.util.Arrays'.(ù·„¾úÿÿÿÿ8—ÿ•Ëò.
+`	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(€åÀß
+_
+java:S1128"DRemove this unused import 'com.secretary.secretaryapp.model.Client'.(ÂÂÁÓ8Ş¾§Ëò.
+f
+java:S2184"FCast one of the operands of this multiplication operation to a "long".(’åÒÍûÿÿÿÿ8Ş¾§Ëò.
+[
+java:S1128"@Remove this unused import 'org.apache.commons.lang3.ArrayUtils'.(ªğô†8—ÿ•Ëò.
+R
+java:S1128"2Remove this unused import 'java.util.Collections'.(¢³ïÓşÿÿÿÿ8ôáŒËò.
+K
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8æ§–Ëò.
+d	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶²ÉÅ
+N
+java:S1118":Add a private constructor to hide the implicit public one.(€åÀß
+a	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶²ÉÅ
+U
+java:S1128";Remove this unused import 'com.openalpr.jni.LicenseReader'.(…½«8Ş¾§Ëò.
+K
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8æ§–Ëò.
+e
+java:S1128"JRemove this unused import 'com.secretary.secretaryapp.email.EmailService'.(¡Ó†Á8ôáŒËò.

@@ -1,38 +1,13 @@
 package com.openalpr.jni;
 
 import com.openalpr.jni.json.JSONException;
-import org.opencv.core.Core;
 
 public class Alpr {
     static{
         String osName = System.getProperty("os.name");
-        String opencvpath = System.getProperty("user.dir");
-        if(osName.startsWith("Windows")) {
-//            int bitness = Integer.parseInt(System.getProperty("sun.arch.data.model"));
-//            if(bitness == 32) {
-//                opencvpath=opencvpath+"\\openalpr_dependencies\\";
-//            }
-//            else if (bitness == 64) {
-//                opencvpath=opencvpath+"\\openalpr_dependencies\\";
-//            } else {
-                //opencvpath=opencvpath+"\\openalpr_dependencies\\";
-            opencvpath=opencvpath+"\\";
-//            }
-        }
-        else if(osName.equals("Mac OS X")){
-            opencvpath = opencvpath+"Your path to .dylib";
-        }
-        System.out.println(opencvpath);
-        //System.load(opencvpath + Core.NATIVE_LIBRARY_NAME + ".dll");
-        System.load(opencvpath + "openalprjni" + ".dll");
-        //nu.pattern.OpenCV.loadShared();
-        //System.loadLibrary(org.opencv.core.Core.NATIVE_LIBRARY_NAME);
+        String openalprpath = System.getProperty("user.dir");
+        System.load(openalprpath + "\\openalprjni" + ".dll");
     }
-//    static {
-//        // Load the OpenALPR library at runtime
-//        // openalprjni.dll (Windows) or libopenalprjni.so (Linux/Mac)
-//        System.loadLibrary("openalprjni");
-//    }
 
     private native void initialize(String country, String configFile, String runtimeDir);
     private native void dispose();

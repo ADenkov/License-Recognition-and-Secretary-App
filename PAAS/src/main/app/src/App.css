@@ -15,6 +15,10 @@
   background-color: rgb(62, 68, 74);
 }
 
+.input-group-addon{
+  float: left;
+}
+
 /* td{
   background-color: rgb(141, 141, 141);
   border: whitesmoke solid 1.5px;
@@ -112,10 +116,6 @@ img{
 .form-group.text-left{
 margin-bottom: 7%;
 width: 400px;
-}
-
-.form-control{
-font-size: 50px;
 }
 
 span.h3 {

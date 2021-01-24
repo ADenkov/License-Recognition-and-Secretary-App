@@ -68,7 +68,7 @@
     <orderEntry type="library" name="Maven: org.openjfx:javafx-base:11" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-base:win:11" level="project" />
     <orderEntry type="library" name="Maven: commons-io:commons-io:2.1" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-mail:2.3.5.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-mail:2.3.8.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter:2.3.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:2.3.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-autoconfigure:2.3.4.RELEASE" level="project" />

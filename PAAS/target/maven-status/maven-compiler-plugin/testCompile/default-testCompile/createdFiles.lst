@@ -1,6 +1,0 @@
-com\secretary\secretaryapp\SecretaryAppApplicationTests.class
-com\secretary\secretaryapp\controller\FileControllerTestRestTemplate.class
-com\secretary\secretaryapp\SendingEmailTest.class
-com\secretary\secretaryapp\controller\FileControllerTest.class
-com\secretary\secretaryapp\controller\ClientControllerTest.class
-com\secretary\secretaryapp\model\ClientTest.class

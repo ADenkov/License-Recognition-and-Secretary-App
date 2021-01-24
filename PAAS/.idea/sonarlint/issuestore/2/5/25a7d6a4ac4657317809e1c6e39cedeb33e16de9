@@ -1,0 +1,7 @@
+
+X
+java:S1854 "6Remove this useless assignment to local variable "vs".(Ø¡ÿÚýÿÿÿÿ8ü³•Œò.
+I
+java:S1481 "'Remove this unused "vs" local variable.(Ø¡ÿÚýÿÿÿÿ8ü³•Œò.
+]	java:S125"<This block of commented-out lines of code should be removed.(Üóðòüÿÿÿÿ8‘ñ‰ò.
+S	java:S106"9Replace this use of System.out or System.err by a logger.(âêœºøÿÿÿÿ

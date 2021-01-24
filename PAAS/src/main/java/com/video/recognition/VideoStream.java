@@ -1,10 +1,10 @@
 package com.video.recognition;
 
 import org.opencv.core.Core;
-import org.opencv.highgui.VideoCapture;
+import org.opencv.osgi.OpenCVNativeLoader;
+import org.opencv.videoio.VideoCapture;
 
 public class VideoStream {
-    private VideoCapture vc;
     static{
         String osName = System.getProperty("os.name");
         String opencvpath = System.getProperty("user.dir");
@@ -25,19 +25,10 @@ public class VideoStream {
         System.out.println(opencvpath);
         System.load(opencvpath + Core.NATIVE_LIBRARY_NAME + ".dll");
         System.load(opencvpath + "opencv_ffmpeg300_64" + ".dll");
-        //nu.pattern.OpenCV.loadShared();
-        //System.loadLibrary(org.opencv.core.Core.NATIVE_LIBRARY_NAME);
     }
-    public boolean init(String ip_address){
 
-        vc = new VideoCapture();
-        
-
-        vc.open(ip_address);
-        return vc.isOpened();
+    public static void main(String[] args){
+        VideoCapture capture = new VideoCapture();
+        capture.open("http://192.168.11.3:8081/video");
     }
-    public boolean status(){return vc.isOpened();}
-    public void stop(){vc.release();}
-    
-
 }

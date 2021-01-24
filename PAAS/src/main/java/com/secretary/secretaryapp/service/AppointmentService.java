@@ -1,6 +1,6 @@
 package com.secretary.secretaryapp.service;
 
-import com.secretary.secretaryapp.dao.AppointmentJpaRepository;
+import com.secretary.secretaryapp.repository.AppointmentRepository;
 import com.secretary.secretaryapp.model.Appointment;
 import com.secretary.secretaryapp.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class AppointmentService {
     @Autowired
-    private AppointmentJpaRepository appointmentJpaRepository;
+    private AppointmentRepository appointmentRepository;
 
     @Autowired
     private ClientRepository clientRepository;
@@ -20,12 +20,12 @@ public class AppointmentService {
 
             Appointment appointment = new Appointment(personID,date,time);
             appointment.setPersonName(clientRepository.getOne(personID).getFirstName() +" "+  clientRepository.getOne(personID).getLastName() );
-            appointmentJpaRepository.save(appointment);
+            appointmentRepository.save(appointment);
             return appointment;
     }
     public List<Appointment> findAppointments(String date){
 
-        List<Appointment> appointments  = appointmentJpaRepository.findAllByDate(date);
+        List<Appointment> appointments  = appointmentRepository.findAllByDate(date);
         return appointments;
     }
 }

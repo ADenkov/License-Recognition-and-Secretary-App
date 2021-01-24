@@ -1,7 +1,18 @@
 import React, { Component } from 'react'
 import {Link} from "react-router-dom";
+import ClientDataService from "../logic/client.service"
 
  class Header extends Component {
+
+     shutdown = () =>{
+         ClientDataService.shutdown().then(()=>{
+             window.close('','_parent','');
+         }).catch(err=>{
+             window.close('','_parent','');
+         });
+
+     }
+
     render() {
         return (
             <div>
@@ -35,8 +46,8 @@ import {Link} from "react-router-dom";
                         </ul>
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <Link id="uploadImage" to={"/uploadImage"} className="nav-link">
-                                Upload
+                                <Link id="ipCamera" to={"/ipCamera"} className="nav-link">
+                                IP Camera
                                 </Link>
                             </li>
                         </ul>
@@ -45,6 +56,11 @@ import {Link} from "react-router-dom";
                                 <Link to={"/calendarComponent"} className="nav-link">
                                 Calendar
                                 </Link>
+                            </li>
+                        </ul>
+                        <ul className="navbar-nav">
+                            <li className="nav-item" onClick={()=>{this.shutdown()}} style={{color:"red", cursor:"pointer"}}>
+                                Shutdown
                             </li>
                         </ul>
                     </div>
